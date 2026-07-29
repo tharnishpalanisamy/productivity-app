@@ -1,10 +1,10 @@
 :root {
-  --focus: #6366F1;
-  --short-break: #34D399;
-  --long-break: #AF4949;
-  --text-primary: #1E293B;
-  --text-secondary: #64748B;
-  --text-muted: #94A3B8;
+    --focus: #6366F1;
+    --short-break: #10B981;
+    --long-break: #0EA5E9;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
 }
 *{
     margin: 0; 
@@ -68,4 +68,42 @@ i{
     color: whitesmoke;
 }
 
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 
+
+.pomo-btn   {
+    border: none; 
+    padding: 7px 15px;  
+    border-radius: 6px;
+    color: whitesmoke; 
+    font-size: 20px;
+    background: transparent;
+    font-weight: 600;
+}
+
+.pomo-btn:hover{
+    cursor: pointer;
+}
+
+.pomodoro {
+    margin: 50px auto 0;
+    width: 90%;
+    max-width: 600px;
+    min-height: 350px;
+    padding: 30px;
+    background: var(--focus);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer{
+    margin-top: 40px;
+    font-size: 80px;
+    color: whitesmoke;
+}
