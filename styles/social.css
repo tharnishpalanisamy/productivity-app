@@ -41,12 +41,12 @@
   height: 60px;
   width: 60px;
   border-radius: 100%;
-  color: rgb(255, 174, 0);
+  color: #38BDF8;
   fill: currentColor;
   box-shadow:
     inset 0 0 20px rgba(255, 255, 255, 0.3),
     inset 0 0 5px rgba(255, 255, 255, 0.5),
-    0 5px 5px rgba(0, 0, 0, 0.164);
+    0 5px 5px rgba(0, 0, 0, 0.164); 
 }
 
 .text {
@@ -54,7 +54,7 @@
   border-radius: 5px;
   padding: 5px;
   transition: all 0.3s;
-  color: rgb(255, 174, 0);
+  color: #38BDF8;
   background-color: rgba(255, 255, 255, 0.3);
   position: absolute;
   z-index: 9999;
@@ -123,13 +123,14 @@
     width: 60px;
     border-radius: 100%;
 
-    background-color: #000; /* THIS */
+    background-color: #0D1117; /* THIS */
 
-    color: rgb(255, 174, 0);
+    color: #38BDF8;
     fill: currentColor;
 
     box-shadow:
         inset 0 0 20px rgba(255, 255, 255, 0.3),
         inset 0 0 5px rgba(255, 255, 255, 0.5),
         0 5px 5px rgba(0, 0, 0, 0.164);
+        
 }

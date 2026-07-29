@@ -58,6 +58,12 @@ if (user.img) {
     profileImg.src = user.img;
 }
 
+let name = document.querySelector('.profile-name') 
+name.textContent = user.name || 'Tharnish' 
+document.getElementById('name').value = name.textContent
+let username = document.querySelector('.profile-username') 
+username.textContent = `@${user.username || 'tharnishpalanisamy'}`
+document.getElementById('username').value = username.textContent.slice(1,)
 chooseProfileImg.addEventListener('click', () => {
     profileImgInput.click();
 });
@@ -79,3 +85,30 @@ profileImgInput.addEventListener('change', () => {
 
     reader.readAsDataURL(file)
 }); 
+
+
+//save changes 
+
+let saveBtn = document.querySelector('.saveBtn') 
+
+saveBtn.addEventListener('click' , function(){
+    let editName = document.getElementById('name') 
+    let editUsername = document.getElementById('username') 
+    let mood = document.getElementById('mood') 
+
+    if(!editName.value || !editUsername.value || !mood.value) {
+        alert('value cannot be empty') 
+        return
+    } 
+    user = {...user , name:editName.value , username : editUsername.value , mood : mood.value}  
+    localStorage.setItem('user' , JSON.stringify(user)) 
+
+    name.textContent = user.name
+    username.textContent = `@${user.username}`
+
+    //close modal 
+
+    let modalElement = document.getElementById('exampleModal') 
+    let modal = bootstrap.Modal.getInstance(modalElement) 
+    modal.hide()
+})

@@ -12,7 +12,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: var(--focus);
+    background-color: #151B23;
     font-family: Poppins;
 }
 
@@ -58,4 +58,14 @@ a{
     text-decoration: none; 
     color: var(--text-primary);
 }
+
+.brand-text{
+    color: whitesmoke;
+    font-size: 30px;
+}
+
+i{
+    color: whitesmoke;
+}
+
 
