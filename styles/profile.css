@@ -1,0 +1,193 @@
+
+.profile-container{
+    padding: 0px 250px;
+    margin-top: 50px;
+    display: flex;  
+    gap: 50px;
+
+}
+
+.profile-section{
+    flex: 1;
+    
+}
+
+.productivity-section {
+    flex: 2; 
+
+}
+
+.profile-img img{
+    border-radius: 50%;
+}
+
+.profile-img{
+    position: relative;
+}
+
+.smile-logo-container{
+    position: absolute;
+    bottom: 20px; 
+    right: 15% ;
+    background: var(--text-primary); 
+    padding: 10px 10px 7px;
+    border-radius: 50% ; 
+    border: 1px solid var(--text-secondary);
+}
+
+.smile-logo{
+    font-size: 20px; 
+    color: var(--text-secondary) ;
+}
+
+.smile-logo-container:hover{
+    cursor: pointer;
+}
+
+body{
+    background: #151B23;
+}
+
+.brand-text{
+    color: whitesmoke;
+}
+
+.heatmap {
+    display: flex;
+    gap: 8px; 
+    border: 1px solid grey; 
+    border-radius: 6px; 
+    padding: 20px; 
+    margin-top: 50px; 
+    flex-direction: column; 
+}
+
+.div{
+    display: flex;
+    gap: 8px; 
+}
+.day-labels {
+    color: whitesmoke;
+    display: grid;
+    grid-template-rows: repeat(7, 12px);
+    gap: 5px;
+}
+
+.day-labels span {
+    font-size: 10px;
+    line-height: 15px; 
+}
+.month-label{
+    display: flex; 
+    justify-content: space-around;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(7, 10px);
+    grid-auto-flow: column;
+    gap: 7px;
+}
+
+.block {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background: #7FE18B;
+}
+
+.block:hover{
+    cursor: pointer;
+}
+
+.high{
+    background: #7FE18B;
+}
+
+.medium{
+    background: #28C244;
+}
+
+.low{
+    background-color: #016620;
+}
+
+.zero{
+    background: #293443;
+}
+.month-label{
+    color: white ; 
+    font-size: 12px ;
+}
+
+.contribution-tooltip{
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+
+.tooltip {
+    --bs-tooltip-bg: #30353c;
+    --bs-tooltip-color: #ffffff;
+    --bs-tooltip-padding-x: 10px;
+    --bs-tooltip-padding-y: 1px;
+}
+
+.profile-data{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.profile-name{ 
+    margin-top: 20px; 
+    padding-right: 50px;
+    color: whitesmoke; 
+
+}
+
+#profileImage{
+    width: 300px; 
+    height: 300px;
+}
+
+
+
+
+.info {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 4px;
+    color: whitesmoke;
+    font-size: 11px;
+
+    margin-top: 4px;
+    margin-right: 20px;
+}
+
+.info span:first-child {
+    margin-right: 3px;
+}
+
+.info span:last-child {
+    margin-left: 3px;
+}
+
+.editProfileBtn{
+    border: none; 
+    background: #212830; 
+    border: 2px solid whitesmoke; 
+    padding: 7px 40px;
+    border-radius: 4px;
+    color: whitesmoke;
+    transition: 0.3s;
+}
+
+.editProfileBtn:hover{
+    opacity: 0.6; 
+}
+
+.modal{
+}

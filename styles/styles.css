@@ -1,0 +1,61 @@
+:root {
+  --focus: #6366F1;
+  --short-break: #34D399;
+  --long-break: #AF4949;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+}
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--focus);
+    font-family: Poppins;
+}
+
+.logo{
+    width: 40px; 
+    height: 40px;
+}
+
+.brand{
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+
+}
+
+.brand-text{
+    color: var(--text-primary);
+}
+
+.nav-bar{
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;
+    gap: 200px;
+    border-bottom: 1px solid whitesmoke; 
+    margin: 0; 
+    padding: 10px;
+}
+
+.profile-logo{
+    font-size: 30px !important;
+}
+
+i:hover{
+    cursor: pointer;
+}
+
+.brand:hover{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none; 
+    color: var(--text-primary);
+}
+
