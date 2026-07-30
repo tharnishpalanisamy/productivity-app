@@ -107,3 +107,27 @@ i{
     font-size: 80px;
     color: whitesmoke;
 }
+
+.timer {
+    font-variant-numeric: tabular-nums;
+    width: 200px;
+    text-align: center;
+}
+
+.pomodoro-timer-btn{
+    padding: 15px 40px; 
+    font-size: 25px; 
+    font-weight: 700; 
+    font-family: Inter; 
+    background-color: #FFFFFF;
+    border: none; 
+    border-radius: 8px; 
+    color: var(--focus); 
+    cursor: pointer;
+}
+
+
+.active{
+    background-color: rgb(255 255 255 / 50%);
+}
+
