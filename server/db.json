@@ -860,41 +860,31 @@
   ],
   "tasks": [
     {
-      "title": "checking",
-      "estimate": "5",
+      "title": "task 1 ",
+      "estimate": 4,
+      "createdOn": "2026-07-30T12:04:54.938Z",
+      "completed": 0,
       "userId": "1",
-      "id": "pDssvF0wJnY"
+      "id": "kk4NUQ_xh6E",
+      "status": "pending"
     },
     {
-      "title": "checking",
-      "estimate": "1",
+      "title": "bye",
+      "estimate": 4,
+      "createdOn": "2026-07-30T12:12:00.604Z",
+      "completed": 0,
       "userId": "1",
-      "id": "FUjqgXpZdN0"
+      "id": "zOe8bdEPP3A",
+      "status": "pending"
     },
     {
-      "title": "hi ",
-      "estimate": "1",
+      "title": "Tharnish",
+      "estimate": 13,
+      "createdOn": "2026-07-30T13:25:51.418Z",
+      "completed": 0,
+      "status": "pending",
       "userId": "1",
-      "id": "B4BcqewErVI"
-    },
-    {
-      "title": "im checking again illa",
-      "estimate": 1,
-      "userId": "1",
-      "id": "T9B3_ALxuZo"
-    },
-    {
-      "title": "Hi",
-      "estimate": "7",
-      "userId": "1",
-      "id": "MhII5lo3rdI"
-    },
-    {
-      "title": "check2",
-      "estimate": 5,
-      "createdOn": "2026-07-30T11:32:54.546Z",
-      "userId": "1",
-      "id": "TL3tdAP9UPM"
+      "id": "3O-85FY61so"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

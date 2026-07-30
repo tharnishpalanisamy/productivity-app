@@ -252,6 +252,7 @@ saveBtn.addEventListener('click', async function () {
         estimate: estimate,
         createdOn: new Date().toISOString(),
         completed:0 ,
+        status:'pending',
         userId: user.id
     };
 
@@ -321,16 +322,19 @@ async function fetchTasks() {
 
         allTasks.forEach(task => {
             tasks.innerHTML += `
-                <div class="task-card" data-id="${task.id}">
+                <div class="task-card" data-id="${task.id}" ${task.status == 'completed' ? 'selected' :''}>
                     <div class="task-card-left">
-                        <button class="task-check" type="button" >
-                            <i class="fa-solid fa-check text-dark"></i>
+                        <button class="task-check completeTask ${task.status == 'completed' ? 'btnSelected' :''}"
+                         data-id=${task.id} data-status=${task.status} type="button"  >
+                            <i class="fa-solid fa-check text-dark tick 
+                            ${task.status == 'completed' ? 'fs-5 bg-none btnSelected' :''}" 
+                            ></i>
                         </button>
                         <div class="task-info">
-                            <p class="task-title">
+                            <p class="task-title ${task.status == 'completed' ? 'strike' :''}">
                                 ${task.title}
                             </p>
-                            <p class="task-progress">
+                            <p class="task-progress ${task.status == 'completed' ? 'strike' :''}">
                                 ${task.completed ? task.estimate : '0'} / ${task.estimate} sessions
                             </p>
                         </div>
@@ -475,22 +479,36 @@ tasks.addEventListener('click', async function (event) {
 
     const deleteBtn = event.target.closest('.delete-task-btn');
     if (deleteBtn) {
-        const shouldDelete = confirm('Are you sure you want to delete this task?'); 
-        if (!shouldDelete) {
-            return;
-        }
-        try {
-            const response = await fetch(
-                `http://localhost:3000/tasks/${currentTask}`,
-                {
-                    method: 'DELETE'
-                }
-            );
-            currentTask = null;
-            await fetchTasks();
-        } catch (error) {
-            console.log(error);
-        }
+        Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to delete this task!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+        if (result.isConfirmed) 
+            try {
+                const response = await fetch(
+                    `http://localhost:3000/tasks/${currentTask}`,
+                    {
+                        method: 'DELETE'
+                    }
+                );
+                currentTask = null;
+                await fetchTasks();
+            } catch (error) {
+                console.log(error);
+            }
+            
+            Swal.fire({
+            title: "Deleted!",
+            text: "Your Task has been deleted.",
+            icon: "success"
+        });
+        });
+        
         return
     }
 });
@@ -499,4 +517,82 @@ fetchTasks();
 
 
 
-//selecting task
+
+//completed Task
+let selectedTask
+tasks.addEventListener('click' , async  function(event){
+    if(event.target.closest('.completeTask')) {
+
+        selectedTask = event.target.closest('.completeTask').dataset.id  
+        let selectedBtn = event.target.closest('.completeTask') 
+        let selectedIcon = selectedBtn.querySelector('.tick')
+        let selectedTaskCard = event.target.closest('.task-card')
+
+        let selectedTitle = selectedTaskCard.querySelector('.task-title') 
+        let selectedProgress = selectedTaskCard.querySelector('.task-progress')
+        let allTaskCards = document.querySelectorAll('.task-card') 
+
+
+        if (selectedBtn.dataset.status == 'completed') {
+            
+            selectedBtn.classList.remove('btnSelected')
+
+            selectedIcon.classList.remove('btnSelected' , 'bg-none' , 'fs-5')  
+            selectedIcon.classList.add('text-dark') 
+            
+            selectedTitle.classList.remove('strike')
+            
+            selectedProgress.classList.remove('strike')
+
+            selectedBtn.dataset.status = 'pending'
+
+            await fetch(`http://localhost:3000/tasks/${selectedTask}` , {
+                method:'PATCH' , 
+                headers:{
+                    'Content-type':'application/json' 
+                },
+                body:JSON.stringify({status:'pending'})
+            })
+
+        }
+        else if (selectedBtn.dataset.status == 'pending') {
+
+            selectedBtn.classList.add('btnSelected' )
+            selectedBtn.dataset.status = 'completed'
+            selectedIcon.classList.add('btnSelected' , 'bg-none' , 'fs-5')  
+            selectedIcon.classList.remove('text-dark') 
+            
+            selectedTitle.classList.add('strike')
+            
+            selectedProgress.classList.add('strike')
+            console.log(selectedTitle);
+            
+            console.log(allTaskCards);
+
+            allTaskCards.forEach(task =>{
+                if(task.dataset.id === selectedTask) {
+                    task.classList.add('selected')
+                }
+            })
+
+            await fetch(`http://localhost:3000/tasks/${selectedTask}` , {
+                method:'PATCH' , 
+                headers:{
+                    'Content-type':'application/json' 
+                },
+                body:JSON.stringify({status:'completed'})
+            })
+
+
+        }
+        
+        
+
+
+
+        
+        
+        
+        
+    }
+})

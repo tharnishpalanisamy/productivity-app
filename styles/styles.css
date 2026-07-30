@@ -347,16 +347,14 @@ i{
     cursor: pointer;
 
     transition:
-        transform 0.15s ease,
+        transform 0.3s ease,
         border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
 
 .task-card:hover {
     transform: translateY(-1px);
-
     border-left-color: #6366F1;
-
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
 
@@ -374,27 +372,20 @@ i{
 .task-check {
     width: 30px;
     height: 30px;
-
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: transparent;
-
     border: 2px solid #d1d5db;
     border-radius: 50%;
-
     color: transparent;
-
     cursor: pointer;
-
     transition: 0.2s ease;
 }
 
 .task-check:hover {
-    border-color: #6366F1;
+    border-color: var(--focus);
     background: rgba(99, 102, 241, 0.08);
 }
 
@@ -636,4 +627,21 @@ i{
 
 .save-edit-btn:hover {
     background: #34363a;
+}
+
+.selected{
+    border-left-color: #6366F1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+
+}
+
+.btnSelected{
+    border-color: var(--focus);
+    color: #10B981 !important; 
+
+}
+
+.strike {
+    text-decoration: line-through;
+    color: #10B981;
 }
