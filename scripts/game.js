@@ -25,8 +25,9 @@ gamesContainer.addEventListener('click', function(event) {
         
         if (selectedGame === 'tenzies') {
             ticTacToe.classList.add('d-none')
-            tenzies.classList.remove('d-none')
-        }
+            tenzies.classList.remove('d-none') 
+            reaction.classList.add('d-none')
+        } 
 
         else if (selectedGame === 'reaction') {
             ticTacToe.classList.add('d-none')
@@ -37,6 +38,7 @@ gamesContainer.addEventListener('click', function(event) {
         else if (selectedGame === 'tictactoe') {
             tenzies.classList.add('d-none')
             ticTacToe.classList.remove('d-none')
+            reaction.classList.add('d-none')
         }
 
         else if (selectedGame === 'rps') {
@@ -294,38 +296,127 @@ function celebrateTenziesWin() {
 }
 
 //reaction game 
-let reactiongameBtn = document.getElementById('reactionGame') 
-reactiongameBtn.addEventListener('click' , function(){ 
-    console.log('working da');
-    
-    let waitTime = Math.ceil(Math.random() * 3 ) + 2   
-    let reactionText = document.querySelector('.reaction-text')  
-    let reactionBody = document.querySelector('.reactionGame-body') 
+// Reaction game
+let reactiongameBtn = document.getElementById('reactionGame')
 
-    console.log('w',waitTime);
+let reactionTimeout
+let startTime = 0
+let gameState = 'idle' 
 
-    function showGreen(){
-        setTimeout(() => {
-            reaction.classList.add('click-screen') 
-            reactionBody.classList.add('click-screen')
-            reaction.classList.remove('reaction-waiting')   
-            reactionText.textContent = 'Click   '   
-
-        }, waitTime * 1000);
-
-    }
-    showGreen()
-
-    reactionBody.addEventListener('click' , function(event){
-        if(event.target.closest('.click-screen')) {
-            reaction.classList.remove('click-screen') 
-            reactionBody.classList.remove('click-screen')
-            reaction.classList.remove('reaction-waiting') 
-            reaction.classList.add('screen-clicked') 
-
-            
-        }
-    })
-
+reactiongameBtn.addEventListener('click', function () {
+    startReactionGame()
 })
 
+function startReactionGame() {
+
+    let reaction = document.querySelector('.reactionContainer')
+    let reactionText = document.querySelector('.reaction-text')
+    let reactionBody = document.querySelector('.reactionGame-body')
+    let dots = document.querySelector('.dot')
+    let icon = document.querySelector('.reaction-icon')
+    let tryAgain = document.querySelector('.try-again')
+
+    reaction.classList.remove('click-screen', 'screen-clicked')
+    reaction.classList.add('reaction-waiting')
+
+    reactionBody.classList.remove('click-screen')
+
+    reactionText.textContent = 'Wait for Green'
+    dots.textContent = '...'
+    icon.textContent = ''
+    tryAgain.textContent = ''
+
+    gameState = 'waiting'
+
+    let waitTime = Math.floor(Math.random() * 4) + 2
+
+    console.log('Wait:', waitTime)
+
+    clearTimeout(reactionTimeout)
+
+    reactionTimeout = setTimeout(() => {
+        reaction.classList.remove('reaction-waiting')
+        reaction.classList.add('click-screen')
+
+        reactionBody.classList.add('click-screen')
+
+        reactionText.textContent = 'CLICK!'
+        dots.textContent = ''
+
+        gameState = 'ready'
+
+        startTime = performance.now()
+
+    }, waitTime * 1000)
+}
+
+
+// Handle clicks on game screen
+document
+    .querySelector('.reactionGame-body')
+    .addEventListener('click', function () {
+
+        let reaction = document.querySelector('.reactionContainer')
+        let reactionText = document.querySelector('.reaction-text')
+        let reactionBody = document.querySelector('.reactionGame-body')
+        let dots = document.querySelector('.dot')
+        let icon = document.querySelector('.reaction-icon')
+        let tryAgain = document.querySelector('.try-again')
+
+        if (gameState === 'waiting') {
+
+            clearTimeout(reactionTimeout)
+
+            gameState = 'result'
+
+            reaction.classList.remove('reaction-waiting')
+            reaction.classList.add('screen-clicked')
+
+            reactionBody.classList.remove('click-screen')
+
+            dots.textContent = ''
+            icon.textContent = '⚠️'
+            reactionText.textContent = 'Too Early!'
+            tryAgain.textContent = 'Click to try again'
+
+            return
+        }
+        //correct click
+        if (gameState === 'ready') {
+
+            let endTime = performance.now()
+
+            let reactionTime = Math.round(endTime - startTime)
+
+            gameState = 'result'
+
+            reaction.classList.remove('click-screen')
+            reaction.classList.add('screen-clicked')
+
+            reactionBody.classList.remove('click-screen')
+
+            dots.textContent = ''
+            icon.textContent = '⚡'
+
+            reactionText.textContent = `${reactionTime} ms`
+
+            if (reactionTime < 200) {
+                tryAgain.textContent = 'Insane reaction! Click to try again'
+            }
+            else if (reactionTime < 300) {
+                tryAgain.textContent = 'Great reaction! Click to try again'
+            }
+            else if (reactionTime < 400) {
+                tryAgain.textContent = 'Not bad! Click to try again'
+            }
+            else {
+                tryAgain.textContent = 'You sleeping da? 😭 Click to try again'
+            }
+
+            return
+        }
+
+        if (gameState === 'result') {
+            startReactionGame()
+        }
+    })

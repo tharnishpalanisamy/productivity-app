@@ -234,30 +234,74 @@
 
 /* Reaction time game */
 
-.reactionGame-body{
+/* Reaction Time Game */
+
+.reactionGame-body {
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 500px;
-} 
 
-.reaction-waiting{
+    height: 500px;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+
+/* Waiting */
+
+.reaction-waiting {
     background: #CE2636;
 }
-.reactionGame-body:hover{
-    cursor: pointer;
-}
 
-.reaction-text , .dot{ 
-    color: whitesmoke; 
-    font-size: 4rem;
-}
 
-.click-screen{
+/* Green - CLICK */
+
+.click-screen {
     background-color: #4BDB6A !important;
 }
 
-.screen-clicked{
+
+/* Result */
+
+.screen-clicked {
     background: #2B87D1 !important;
 }
+
+
+/* Main text */
+
+.reaction-text,
+.dot {
+    color: whitesmoke;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+
+/* Icon */
+
+.reaction-icon {
+    font-size: 4rem;
+}
+
+
+/* Try again text */
+
+.try-again {
+    color: whitesmoke;
+    font-size: 1.2rem;
+
+    margin-top: 15px;
+
+    opacity: 0.8;
+}
+
+
+/* Remove accidental text selection */
+
+.reactionGame-body * {
+    user-select: none;
+}   
