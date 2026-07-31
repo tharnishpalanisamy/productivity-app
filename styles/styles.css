@@ -705,6 +705,7 @@ i{
     background: #f8fafc;
     padding: 28px 35px;
     border-radius: 14px;
+    
 }
 
 .shortBreak-p {
@@ -719,6 +720,7 @@ i{
     justify-content: center;
     gap: 35px;
     flex-wrap: wrap;
+    
 }
 
 .game {

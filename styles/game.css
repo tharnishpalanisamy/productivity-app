@@ -1,0 +1,263 @@
+
+.tic-tac-toe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-status {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.tic-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 8px;
+}
+
+.tic-cell {
+    width: 100px;
+    height: 100px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #f1f5f9;
+
+    font-size: 2.5rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease,
+                background 0.15s ease;
+}
+
+.tic-cell:hover {
+    background: #e2e8f0;
+    transform: scale(1.03);
+}
+
+.tic-cell:active {
+    transform: scale(0.95);
+}
+
+
+
+/* tenzies */ 
+/* ===== TENZIES ===== */
+
+.tenziesContainer .modal-body {
+    padding: 32px;
+    text-align: center;
+}
+
+/* Instruction */
+.tenzies-text p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 28px;
+}
+
+/* Dice grid */
+.dice-container {
+    display: grid;
+    grid-template-columns: repeat(5, 64px);
+    gap: 16px;
+
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* Individual die */
+.die {
+    width: 64px;
+    height: 64px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #ffffff;
+    color: #111827;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.die:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.16),
+        0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.die:active {
+    transform: scale(0.94);
+}
+
+
+/* Held die */
+.die.held {
+    background: #10B981;
+    color: white;
+
+    box-shadow:
+        0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+
+/* Roll button */
+.rollDice {
+    border: none;
+    border-radius: 10px;
+
+    padding: 11px 30px;
+
+    background: #4F46E5;
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.rollDice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+}
+
+.rollDice:active {
+    transform: scale(0.97);
+}
+
+
+/* Mobile */
+@media (max-width: 576px) {
+
+    .tenziesContainer .modal-body {
+        padding: 24px 15px;
+    }
+
+    .dice-container {
+        grid-template-columns: repeat(5, 50px);
+        gap: 10px;
+    }
+
+    .die {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+
+.die-selected{
+    background: #10B981;
+}
+
+.tenzies-win {
+    min-height: 28px;
+    margin: -12px 0 20px !important;
+
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #10B981 !important;
+
+    opacity: 0;
+}
+
+.tenzies-win.show-win {
+    animation: winPop 0.5s ease forwards;
+}
+
+@keyframes winPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(10px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.15) translateY(-3px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+.die.win-die {
+    animation: diceCelebrate 0.55s ease;
+}
+
+@keyframes diceCelebrate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    35% {
+        transform: translateY(-18px) rotate(-8deg) scale(1.08);
+    }
+
+    65% {
+        transform: translateY(3px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+/* Reaction time game */
+
+.reactionGame-body{
+    display: flex;
+    justify-content: center;  
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+} 
+
+.reaction-waiting{
+    background: #CE2636;
+}
+.reactionGame-body:hover{
+    cursor: pointer;
+}
+
+.reaction-text , .dot{ 
+    color: whitesmoke; 
+    font-size: 4rem;
+}
+
+.click-screen{
+    background-color: #4BDB6A !important;
+}
+
+.screen-clicked{
+    background: #2B87D1 !important;
+}
