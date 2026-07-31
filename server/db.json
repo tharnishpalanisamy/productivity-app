@@ -5,891 +5,1357 @@
       "name": "tharnish",
       "email": "tharnishpalanisamy3@gmail.com",
       "username": "tharnishpalanisamy",
-      "session": 5,
-      "focusTime": 84,
-      "streak": 10,
-      "thisMonth": 6,
+      "session": 27,
+      "focusTime": 106,
+      "streak": 32,
+      "completedTasks": 6,
+      "thisMonth": 28,
+      "mood": "focused",
       "heatmapData": [
         {
           "date": "2025-12-31",
-          "completedTasks": 6
+          "completedTasks": 3,
+          "sessions": 6,
+          "focusTime": 18
         },
         {
           "date": "2026-01-01",
-          "completedTasks": 3
+          "completedTasks": 3,
+          "sessions": 2,
+          "focusTime": 92
         },
         {
           "date": "2026-01-02",
-          "completedTasks": 7
+          "completedTasks": 7,
+          "sessions": 6,
+          "focusTime": 79
         },
         {
           "date": "2026-01-03",
-          "completedTasks": 0
+          "completedTasks": 8,
+          "sessions": 0,
+          "focusTime": 0
         },
         {
           "date": "2026-01-04",
-          "completedTasks": 6
+          "completedTasks": 1,
+          "sessions": 5,
+          "focusTime": 52
         },
         {
           "date": "2026-01-05",
-          "completedTasks": 0
+          "completedTasks": 7,
+          "sessions": 4,
+          "focusTime": 69
         },
         {
           "date": "2026-01-06",
-          "completedTasks": 0
+          "completedTasks": 3,
+          "sessions": 5,
+          "focusTime": 58
         },
         {
           "date": "2026-01-07",
-          "completedTasks": 2
+          "completedTasks": 8,
+          "sessions": 2,
+          "focusTime": 51
         },
         {
           "date": "2026-01-08",
-          "completedTasks": 5
+          "completedTasks": 6,
+          "sessions": 1,
+          "focusTime": 11
         },
         {
           "date": "2026-01-09",
-          "completedTasks": 3
+          "completedTasks": 5,
+          "sessions": 6,
+          "focusTime": 88
         },
         {
           "date": "2026-01-10",
-          "completedTasks": 4
+          "completedTasks": 3,
+          "sessions": 2,
+          "focusTime": 17
         },
         {
           "date": "2026-01-11",
-          "completedTasks": 0
+          "completedTasks": 8,
+          "sessions": 3,
+          "focusTime": 88
         },
         {
           "date": "2026-01-12",
-          "completedTasks": 0
+          "completedTasks": 4,
+          "sessions": 2,
+          "focusTime": 67
         },
         {
           "date": "2026-01-13",
-          "completedTasks": 5
+          "completedTasks": 4,
+          "sessions": 7,
+          "focusTime": 73
         },
         {
           "date": "2026-01-14",
-          "completedTasks": 4
+          "completedTasks": 6,
+          "sessions": 7,
+          "focusTime": 22
         },
         {
           "date": "2026-01-15",
-          "completedTasks": 4
+          "completedTasks": 2,
+          "sessions": 7,
+          "focusTime": 72
         },
         {
           "date": "2026-01-16",
-          "completedTasks": 1
+          "completedTasks": 5,
+          "sessions": 7,
+          "focusTime": 99
         },
         {
           "date": "2026-01-17",
-          "completedTasks": 7
+          "completedTasks": 5,
+          "sessions": 1,
+          "focusTime": 81
         },
         {
           "date": "2026-01-18",
-          "completedTasks": 4
+          "completedTasks": 3,
+          "sessions": 2,
+          "focusTime": 82
         },
         {
           "date": "2026-01-19",
-          "completedTasks": 2
+          "completedTasks": 6,
+          "sessions": 7,
+          "focusTime": 33
         },
         {
           "date": "2026-01-20",
-          "completedTasks": 5
+          "completedTasks": 1,
+          "sessions": 7,
+          "focusTime": 13
         },
         {
           "date": "2026-01-21",
-          "completedTasks": 2
+          "completedTasks": 2,
+          "sessions": 7,
+          "focusTime": 26
         },
         {
           "date": "2026-01-22",
-          "completedTasks": 4
+          "completedTasks": 8,
+          "sessions": 0,
+          "focusTime": 84
         },
         {
           "date": "2026-01-23",
-          "completedTasks": 6
+          "completedTasks": 4,
+          "sessions": 0,
+          "focusTime": 28
         },
         {
           "date": "2026-01-24",
-          "completedTasks": 8
+          "completedTasks": 2,
+          "sessions": 2,
+          "focusTime": 54
         },
         {
           "date": "2026-01-25",
-          "completedTasks": 0
+          "completedTasks": 2,
+          "sessions": 2,
+          "focusTime": 83
         },
         {
           "date": "2026-01-26",
-          "completedTasks": 3
+          "completedTasks": 6,
+          "sessions": 0,
+          "focusTime": 95
         },
         {
           "date": "2026-01-27",
-          "completedTasks": 1
+          "completedTasks": 6,
+          "sessions": 4,
+          "focusTime": 66
         },
         {
           "date": "2026-01-28",
-          "completedTasks": 6
+          "completedTasks": 7,
+          "sessions": 4,
+          "focusTime": 88
         },
         {
           "date": "2026-01-29",
-          "completedTasks": 3
+          "completedTasks": 6,
+          "sessions": 3,
+          "focusTime": 64
         },
         {
           "date": "2026-01-30",
-          "completedTasks": 7
+          "completedTasks": 1,
+          "sessions": 4,
+          "focusTime": 36
         },
         {
           "date": "2026-01-31",
-          "completedTasks": 0
+          "completedTasks": 5,
+          "sessions": 0,
+          "focusTime": 94
         },
         {
           "date": "2026-02-01",
-          "completedTasks": 5
+          "completedTasks": 7,
+          "sessions": 3,
+          "focusTime": 5
         },
         {
           "date": "2026-02-02",
-          "completedTasks": 4
+          "completedTasks": 4,
+          "sessions": 3,
+          "focusTime": 47
         },
         {
           "date": "2026-02-03",
-          "completedTasks": 5
+          "completedTasks": 1,
+          "sessions": 2,
+          "focusTime": 11
         },
         {
           "date": "2026-02-04",
-          "completedTasks": 6
+          "completedTasks": 7,
+          "sessions": 1,
+          "focusTime": 61
         },
         {
           "date": "2026-02-05",
-          "completedTasks": 7
+          "completedTasks": 2,
+          "sessions": 4,
+          "focusTime": 31
         },
         {
           "date": "2026-02-06",
-          "completedTasks": 1
+          "completedTasks": 5,
+          "sessions": 5,
+          "focusTime": 45
         },
         {
           "date": "2026-02-07",
-          "completedTasks": 0
+          "completedTasks": 6,
+          "sessions": 0,
+          "focusTime": 95
         },
         {
           "date": "2026-02-08",
-          "completedTasks": 2
+          "completedTasks": 0,
+          "sessions": 6,
+          "focusTime": 2
         },
         {
           "date": "2026-02-09",
-          "completedTasks": 0
+          "completedTasks": 8,
+          "sessions": 7,
+          "focusTime": 55
         },
         {
           "date": "2026-02-10",
-          "completedTasks": 1
+          "completedTasks": 4,
+          "sessions": 5,
+          "focusTime": 89
         },
         {
           "date": "2026-02-11",
-          "completedTasks": 6
+          "completedTasks": 7,
+          "sessions": 2,
+          "focusTime": 16
         },
         {
           "date": "2026-02-12",
-          "completedTasks": 4
+          "completedTasks": 1,
+          "sessions": 5,
+          "focusTime": 71
         },
         {
           "date": "2026-02-13",
-          "completedTasks": 2
+          "completedTasks": 2,
+          "sessions": 5,
+          "focusTime": 67
         },
         {
           "date": "2026-02-14",
-          "completedTasks": 0
+          "completedTasks": 8,
+          "sessions": 6,
+          "focusTime": 76
         },
         {
           "date": "2026-02-15",
-          "completedTasks": 2
+          "completedTasks": 0,
+          "sessions": 3,
+          "focusTime": 87
         },
         {
           "date": "2026-02-16",
-          "completedTasks": 0
+          "completedTasks": 3,
+          "sessions": 0,
+          "focusTime": 29
         },
         {
           "date": "2026-02-17",
-          "completedTasks": 0
+          "completedTasks": 5,
+          "sessions": 6,
+          "focusTime": 18
         },
         {
           "date": "2026-02-18",
-          "completedTasks": 4
+          "completedTasks": 0,
+          "sessions": 7,
+          "focusTime": 20
         },
         {
           "date": "2026-02-19",
-          "completedTasks": 0
+          "completedTasks": 6,
+          "sessions": 3,
+          "focusTime": 81
         },
         {
           "date": "2026-02-20",
-          "completedTasks": 0
+          "completedTasks": 0,
+          "sessions": 0,
+          "focusTime": 6
         },
         {
           "date": "2026-02-21",
-          "completedTasks": 5
+          "completedTasks": 7,
+          "sessions": 1,
+          "focusTime": 92
         },
         {
           "date": "2026-02-22",
-          "completedTasks": 3
+          "completedTasks": 5,
+          "sessions": 2,
+          "focusTime": 6
         },
         {
           "date": "2026-02-23",
-          "completedTasks": 2
+          "completedTasks": 2,
+          "sessions": 0,
+          "focusTime": 40
         },
         {
           "date": "2026-02-24",
-          "completedTasks": 7
+          "completedTasks": 4,
+          "sessions": 2,
+          "focusTime": 16
         },
         {
           "date": "2026-02-25",
-          "completedTasks": 3
+          "completedTasks": 8,
+          "sessions": 0,
+          "focusTime": 24
         },
         {
           "date": "2026-02-26",
-          "completedTasks": 3
+          "completedTasks": 0,
+          "sessions": 6,
+          "focusTime": 87
         },
         {
           "date": "2026-02-27",
-          "completedTasks": 7
+          "completedTasks": 0,
+          "sessions": 2,
+          "focusTime": 61
         },
         {
           "date": "2026-02-28",
-          "completedTasks": 2
+          "completedTasks": 1,
+          "sessions": 5,
+          "focusTime": 0
         },
         {
           "date": "2026-03-01",
-          "completedTasks": 2
+          "completedTasks": 3,
+          "sessions": 7,
+          "focusTime": 84
         },
         {
           "date": "2026-03-02",
-          "completedTasks": 3
+          "completedTasks": 3,
+          "sessions": 5,
+          "focusTime": 97
         },
         {
           "date": "2026-03-03",
-          "completedTasks": 4
+          "completedTasks": 6,
+          "sessions": 5,
+          "focusTime": 39
         },
         {
           "date": "2026-03-04",
-          "completedTasks": 8
+          "completedTasks": 7,
+          "sessions": 4,
+          "focusTime": 68
         },
         {
           "date": "2026-03-05",
-          "completedTasks": 0
+          "completedTasks": 8,
+          "sessions": 0,
+          "focusTime": 38
         },
         {
           "date": "2026-03-06",
-          "completedTasks": 6
+          "completedTasks": 0,
+          "sessions": 4,
+          "focusTime": 79
         },
         {
           "date": "2026-03-07",
-          "completedTasks": 2
+          "completedTasks": 4,
+          "sessions": 6,
+          "focusTime": 83
         },
         {
           "date": "2026-03-08",
-          "completedTasks": 6
+          "completedTasks": 5,
+          "sessions": 0,
+          "focusTime": 54
         },
         {
           "date": "2026-03-09",
-          "completedTasks": 4
+          "completedTasks": 8,
+          "sessions": 6,
+          "focusTime": 15
         },
         {
           "date": "2026-03-10",
-          "completedTasks": 3
+          "completedTasks": 3,
+          "sessions": 1,
+          "focusTime": 81
         },
         {
           "date": "2026-03-11",
-          "completedTasks": 6
+          "completedTasks": 5,
+          "sessions": 1,
+          "focusTime": 24
         },
         {
           "date": "2026-03-12",
-          "completedTasks": 2
+          "completedTasks": 0,
+          "sessions": 0,
+          "focusTime": 24
         },
         {
           "date": "2026-03-13",
-          "completedTasks": 5
+          "completedTasks": 5,
+          "sessions": 3,
+          "focusTime": 58
         },
         {
           "date": "2026-03-14",
-          "completedTasks": 1
+          "completedTasks": 2,
+          "sessions": 3,
+          "focusTime": 0
         },
         {
           "date": "2026-03-15",
-          "completedTasks": 8
+          "completedTasks": 3,
+          "sessions": 4,
+          "focusTime": 39
         },
         {
           "date": "2026-03-16",
-          "completedTasks": 6
+          "completedTasks": 7,
+          "sessions": 2,
+          "focusTime": 15
         },
         {
           "date": "2026-03-17",
-          "completedTasks": 4
+          "completedTasks": 7,
+          "sessions": 5,
+          "focusTime": 15
         },
         {
           "date": "2026-03-18",
-          "completedTasks": 6
+          "completedTasks": 5,
+          "sessions": 7,
+          "focusTime": 47
         },
         {
           "date": "2026-03-19",
-          "completedTasks": 5
+          "completedTasks": 6,
+          "sessions": 7,
+          "focusTime": 97
         },
         {
           "date": "2026-03-20",
-          "completedTasks": 4
+          "completedTasks": 0,
+          "sessions": 6,
+          "focusTime": 5
         },
         {
           "date": "2026-03-21",
-          "completedTasks": 0
+          "completedTasks": 6,
+          "sessions": 4,
+          "focusTime": 76
         },
         {
           "date": "2026-03-22",
-          "completedTasks": 3
+          "completedTasks": 8,
+          "sessions": 7,
+          "focusTime": 85
         },
         {
           "date": "2026-03-23",
-          "completedTasks": 1
+          "completedTasks": 2,
+          "sessions": 7,
+          "focusTime": 82
         },
         {
           "date": "2026-03-24",
-          "completedTasks": 8
+          "completedTasks": 8,
+          "sessions": 2,
+          "focusTime": 33
         },
         {
           "date": "2026-03-25",
-          "completedTasks": 4
+          "completedTasks": 5,
+          "sessions": 5,
+          "focusTime": 32
         },
         {
           "date": "2026-03-26",
-          "completedTasks": 3
+          "completedTasks": 0,
+          "sessions": 1,
+          "focusTime": 84
         },
         {
           "date": "2026-03-27",
-          "completedTasks": 8
+          "completedTasks": 5,
+          "sessions": 6,
+          "focusTime": 43
         },
         {
           "date": "2026-03-28",
-          "completedTasks": 0
+          "completedTasks": 1,
+          "sessions": 2,
+          "focusTime": 79
         },
         {
           "date": "2026-03-29",
-          "completedTasks": 4
+          "completedTasks": 2,
+          "sessions": 7,
+          "focusTime": 26
         },
         {
           "date": "2026-03-30",
-          "completedTasks": 1
+          "completedTasks": 5,
+          "sessions": 7,
+          "focusTime": 40
         },
         {
           "date": "2026-03-31",
-          "completedTasks": 7
+          "completedTasks": 3,
+          "sessions": 4,
+          "focusTime": 84
         },
         {
           "date": "2026-04-01",
-          "completedTasks": 0
+          "completedTasks": 6,
+          "sessions": 0,
+          "focusTime": 20
         },
         {
           "date": "2026-04-02",
-          "completedTasks": 2
+          "completedTasks": 8,
+          "sessions": 4,
+          "focusTime": 80
         },
         {
           "date": "2026-04-03",
-          "completedTasks": 0
+          "completedTasks": 3,
+          "sessions": 6,
+          "focusTime": 93
         },
         {
           "date": "2026-04-04",
-          "completedTasks": 7
+          "completedTasks": 0,
+          "sessions": 7,
+          "focusTime": 93
         },
         {
           "date": "2026-04-05",
-          "completedTasks": 5
+          "completedTasks": 5,
+          "sessions": 2,
+          "focusTime": 14
         },
         {
           "date": "2026-04-06",
-          "completedTasks": 7
+          "completedTasks": 7,
+          "sessions": 0,
+          "focusTime": 15
         },
         {
           "date": "2026-04-07",
-          "completedTasks": 6
+          "completedTasks": 1,
+          "sessions": 3,
+          "focusTime": 58
         },
         {
           "date": "2026-04-08",
-          "completedTasks": 2
+          "completedTasks": 3,
+          "sessions": 4,
+          "focusTime": 55
         },
         {
           "date": "2026-04-09",
-          "completedTasks": 8
+          "completedTasks": 0,
+          "sessions": 0,
+          "focusTime": 37
         },
         {
           "date": "2026-04-10",
-          "completedTasks": 4
+          "completedTasks": 6,
+          "sessions": 3,
+          "focusTime": 34
         },
         {
           "date": "2026-04-11",
-          "completedTasks": 1
+          "completedTasks": 5,
+          "sessions": 6,
+          "focusTime": 97
         },
         {
           "date": "2026-04-12",
-          "completedTasks": 7
+          "completedTasks": 5,
+          "sessions": 7,
+          "focusTime": 85
         },
         {
           "date": "2026-04-13",
-          "completedTasks": 3
+          "completedTasks": 5,
+          "sessions": 3,
+          "focusTime": 47
         },
         {
           "date": "2026-04-14",
-          "completedTasks": 7
+          "completedTasks": 6,
+          "sessions": 4,
+          "focusTime": 3
         },
         {
           "date": "2026-04-15",
-          "completedTasks": 4
+          "completedTasks": 6,
+          "sessions": 3,
+          "focusTime": 26
         },
         {
           "date": "2026-04-16",
-          "completedTasks": 5
+          "completedTasks": 3,
+          "sessions": 1,
+          "focusTime": 43
         },
         {
           "date": "2026-04-17",
-          "completedTasks": 7
+          "completedTasks": 2,
+          "sessions": 6,
+          "focusTime": 29
         },
         {
           "date": "2026-04-18",
-          "completedTasks": 4
+          "completedTasks": 8,
+          "sessions": 1,
+          "focusTime": 87
         },
         {
           "date": "2026-04-19",
-          "completedTasks": 3
+          "completedTasks": 3,
+          "sessions": 1,
+          "focusTime": 18
         },
         {
           "date": "2026-04-20",
-          "completedTasks": 0
+          "completedTasks": 6,
+          "sessions": 7,
+          "focusTime": 42
         },
         {
           "date": "2026-04-21",
-          "completedTasks": 0
+          "completedTasks": 2,
+          "sessions": 1,
+          "focusTime": 87
         },
         {
           "date": "2026-04-22",
-          "completedTasks": 2
+          "completedTasks": 1,
+          "sessions": 4,
+          "focusTime": 83
         },
         {
           "date": "2026-04-23",
-          "completedTasks": 2
+          "completedTasks": 3,
+          "sessions": 0,
+          "focusTime": 16
         },
         {
           "date": "2026-04-24",
-          "completedTasks": 2
+          "completedTasks": 6,
+          "sessions": 7,
+          "focusTime": 56
         },
         {
           "date": "2026-04-25",
-          "completedTasks": 7
+          "completedTasks": 2,
+          "sessions": 7,
+          "focusTime": 66
         },
         {
           "date": "2026-04-26",
-          "completedTasks": 2
+          "completedTasks": 4,
+          "sessions": 3,
+          "focusTime": 40
         },
         {
           "date": "2026-04-27",
-          "completedTasks": 0
+          "completedTasks": 0,
+          "sessions": 0,
+          "focusTime": 88
         },
         {
           "date": "2026-04-28",
-          "completedTasks": 8
+          "completedTasks": 4,
+          "sessions": 1,
+          "focusTime": 18
         },
         {
           "date": "2026-04-29",
-          "completedTasks": 2
+          "completedTasks": 0,
+          "sessions": 2,
+          "focusTime": 9
         },
         {
           "date": "2026-04-30",
-          "completedTasks": 6
+          "completedTasks": 3,
+          "sessions": 7,
+          "focusTime": 80
         },
         {
           "date": "2026-05-01",
-          "completedTasks": 2
+          "completedTasks": 1,
+          "sessions": 3,
+          "focusTime": 30
         },
         {
           "date": "2026-05-02",
-          "completedTasks": 1
+          "completedTasks": 0,
+          "sessions": 1,
+          "focusTime": 84
         },
         {
           "date": "2026-05-03",
-          "completedTasks": 7
+          "completedTasks": 3,
+          "sessions": 2,
+          "focusTime": 62
         },
         {
           "date": "2026-05-04",
-          "completedTasks": 6
+          "completedTasks": 1,
+          "sessions": 6,
+          "focusTime": 71
         },
         {
           "date": "2026-05-05",
-          "completedTasks": 1
+          "completedTasks": 0,
+          "sessions": 3,
+          "focusTime": 20
         },
         {
           "date": "2026-05-06",
-          "completedTasks": 8
+          "completedTasks": 0,
+          "sessions": 6,
+          "focusTime": 4
         },
         {
           "date": "2026-05-07",
-          "completedTasks": 6
+          "completedTasks": 3,
+          "sessions": 4,
+          "focusTime": 36
         },
         {
           "date": "2026-05-08",
-          "completedTasks": 2
+          "completedTasks": 3,
+          "sessions": 7,
+          "focusTime": 47
         },
         {
           "date": "2026-05-09",
-          "completedTasks": 2
+          "completedTasks": 1,
+          "sessions": 7,
+          "focusTime": 80
         },
         {
           "date": "2026-05-10",
-          "completedTasks": 6
+          "completedTasks": 8,
+          "sessions": 2,
+          "focusTime": 95
         },
         {
           "date": "2026-05-11",
-          "completedTasks": 5
+          "completedTasks": 7,
+          "sessions": 4,
+          "focusTime": 47
         },
         {
           "date": "2026-05-12",
-          "completedTasks": 5
+          "completedTasks": 8,
+          "sessions": 6,
+          "focusTime": 68
         },
         {
           "date": "2026-05-13",
-          "completedTasks": 6
+          "completedTasks": 7,
+          "sessions": 1,
+          "focusTime": 4
         },
         {
           "date": "2026-05-14",
-          "completedTasks": 2
+          "completedTasks": 0,
+          "sessions": 4,
+          "focusTime": 58
         },
         {
           "date": "2026-05-15",
-          "completedTasks": 2
+          "completedTasks": 4,
+          "sessions": 5,
+          "focusTime": 80
         },
         {
           "date": "2026-05-16",
-          "completedTasks": 8
+          "completedTasks": 5,
+          "sessions": 7,
+          "focusTime": 13
         },
         {
           "date": "2026-05-17",
-          "completedTasks": 8
+          "completedTasks": 1,
+          "sessions": 2,
+          "focusTime": 10
         },
         {
           "date": "2026-05-18",
-          "completedTasks": 7
+          "completedTasks": 8,
+          "sessions": 5,
+          "focusTime": 39
         },
         {
           "date": "2026-05-19",
-          "completedTasks": 4
+          "completedTasks": 0,
+          "sessions": 7,
+          "focusTime": 82
         },
         {
           "date": "2026-05-20",
-          "completedTasks": 2
+          "completedTasks": 3,
+          "sessions": 5,
+          "focusTime": 45
         },
         {
           "date": "2026-05-21",
-          "completedTasks": 5
+          "completedTasks": 0,
+          "sessions": 2,
+          "focusTime": 64
         },
         {
           "date": "2026-05-22",
-          "completedTasks": 2
+          "completedTasks": 4,
+          "sessions": 1,
+          "focusTime": 21
         },
         {
           "date": "2026-05-23",
-          "completedTasks": 7
+          "completedTasks": 6,
+          "sessions": 3,
+          "focusTime": 87
         },
         {
           "date": "2026-05-24",
-          "completedTasks": 7
+          "completedTasks": 6,
+          "sessions": 5,
+          "focusTime": 3
         },
         {
           "date": "2026-05-25",
-          "completedTasks": 2
+          "completedTasks": 3,
+          "sessions": 7,
+          "focusTime": 28
         },
         {
           "date": "2026-05-26",
-          "completedTasks": 4
+          "completedTasks": 3,
+          "sessions": 7,
+          "focusTime": 44
         },
         {
           "date": "2026-05-27",
-          "completedTasks": 5
+          "completedTasks": 4,
+          "sessions": 1,
+          "focusTime": 8
         },
         {
           "date": "2026-05-28",
-          "completedTasks": 6
+          "completedTasks": 6,
+          "sessions": 6,
+          "focusTime": 2
         },
         {
           "date": "2026-05-29",
-          "completedTasks": 6
+          "completedTasks": 5,
+          "sessions": 0,
+          "focusTime": 72
         },
         {
           "date": "2026-05-30",
-          "completedTasks": 1
+          "completedTasks": 3,
+          "sessions": 5,
+          "focusTime": 85
         },
         {
           "date": "2026-05-31",
-          "completedTasks": 0
+          "completedTasks": 3,
+          "sessions": 1,
+          "focusTime": 96
         },
         {
           "date": "2026-06-01",
-          "completedTasks": 7
+          "completedTasks": 3,
+          "sessions": 2,
+          "focusTime": 66
         },
         {
           "date": "2026-06-02",
-          "completedTasks": 2
+          "completedTasks": 7,
+          "sessions": 1,
+          "focusTime": 40
         },
         {
           "date": "2026-06-03",
-          "completedTasks": 6
+          "completedTasks": 2,
+          "sessions": 5,
+          "focusTime": 13
         },
         {
           "date": "2026-06-04",
-          "completedTasks": 0
+          "completedTasks": 4,
+          "sessions": 6,
+          "focusTime": 86
         },
         {
           "date": "2026-06-05",
-          "completedTasks": 1
+          "completedTasks": 7,
+          "sessions": 5,
+          "focusTime": 64
         },
         {
           "date": "2026-06-06",
-          "completedTasks": 6
+          "completedTasks": 5,
+          "sessions": 3,
+          "focusTime": 91
         },
         {
           "date": "2026-06-07",
-          "completedTasks": 8
+          "completedTasks": 7,
+          "sessions": 3,
+          "focusTime": 65
         },
         {
           "date": "2026-06-08",
-          "completedTasks": 0
+          "completedTasks": 6,
+          "sessions": 6,
+          "focusTime": 4
         },
         {
           "date": "2026-06-09",
-          "completedTasks": 2
+          "completedTasks": 2,
+          "sessions": 0,
+          "focusTime": 67
         },
         {
           "date": "2026-06-10",
-          "completedTasks": 1
+          "completedTasks": 0,
+          "sessions": 4,
+          "focusTime": 43
         },
         {
           "date": "2026-06-11",
-          "completedTasks": 3
+          "completedTasks": 0,
+          "sessions": 3,
+          "focusTime": 5
         },
         {
           "date": "2026-06-12",
-          "completedTasks": 3
+          "completedTasks": 4,
+          "sessions": 4,
+          "focusTime": 86
         },
         {
           "date": "2026-06-13",
-          "completedTasks": 3
+          "completedTasks": 2,
+          "sessions": 6,
+          "focusTime": 86
         },
         {
           "date": "2026-06-14",
-          "completedTasks": 6
+          "completedTasks": 3,
+          "sessions": 5,
+          "focusTime": 26
         },
         {
           "date": "2026-06-15",
-          "completedTasks": 0
+          "completedTasks": 1,
+          "sessions": 0,
+          "focusTime": 36
         },
         {
           "date": "2026-06-16",
-          "completedTasks": 0
+          "completedTasks": 1,
+          "sessions": 5,
+          "focusTime": 66
         },
         {
           "date": "2026-06-17",
-          "completedTasks": 4
+          "completedTasks": 7,
+          "sessions": 0,
+          "focusTime": 49
         },
         {
           "date": "2026-06-18",
-          "completedTasks": 2
+          "completedTasks": 4,
+          "sessions": 3,
+          "focusTime": 78
         },
         {
           "date": "2026-06-19",
-          "completedTasks": 2
+          "completedTasks": 1,
+          "sessions": 3,
+          "focusTime": 35
         },
         {
           "date": "2026-06-20",
-          "completedTasks": 3
+          "completedTasks": 8,
+          "sessions": 2,
+          "focusTime": 55
         },
         {
           "date": "2026-06-21",
-          "completedTasks": 5
+          "completedTasks": 3,
+          "sessions": 4,
+          "focusTime": 20
         },
         {
           "date": "2026-06-22",
-          "completedTasks": 2
+          "completedTasks": 8,
+          "sessions": 5,
+          "focusTime": 0
         },
         {
           "date": "2026-06-23",
-          "completedTasks": 0
+          "completedTasks": 8,
+          "sessions": 1,
+          "focusTime": 77
         },
         {
           "date": "2026-06-24",
-          "completedTasks": 8
+          "completedTasks": 0,
+          "sessions": 3,
+          "focusTime": 2
         },
         {
           "date": "2026-06-25",
-          "completedTasks": 0
+          "completedTasks": 3,
+          "sessions": 0,
+          "focusTime": 3
         },
         {
           "date": "2026-06-26",
-          "completedTasks": 6
+          "completedTasks": 2,
+          "sessions": 3,
+          "focusTime": 27
         },
         {
           "date": "2026-06-27",
-          "completedTasks": 0
+          "completedTasks": 2,
+          "sessions": 5,
+          "focusTime": 44
         },
         {
           "date": "2026-06-28",
-          "completedTasks": 1
+          "completedTasks": 7,
+          "sessions": 0,
+          "focusTime": 10
         },
         {
           "date": "2026-06-29",
-          "completedTasks": 4
+          "completedTasks": 2,
+          "sessions": 7,
+          "focusTime": 53
         },
         {
           "date": "2026-06-30",
-          "completedTasks": 5
+          "completedTasks": 1,
+          "sessions": 2,
+          "focusTime": 1
         },
         {
           "date": "2026-07-01",
-          "completedTasks": 8
+          "completedTasks": 6,
+          "sessions": 6,
+          "focusTime": 13
         },
         {
           "date": "2026-07-02",
-          "completedTasks": 1
+          "completedTasks": 1,
+          "sessions": 7,
+          "focusTime": 45
         },
         {
           "date": "2026-07-03",
-          "completedTasks": 1
+          "completedTasks": 2,
+          "sessions": 0,
+          "focusTime": 17
         },
         {
           "date": "2026-07-04",
-          "completedTasks": 6
+          "completedTasks": 1,
+          "sessions": 1,
+          "focusTime": 91
         },
         {
           "date": "2026-07-05",
-          "completedTasks": 8
+          "completedTasks": 3,
+          "sessions": 1,
+          "focusTime": 29
         },
         {
           "date": "2026-07-06",
-          "completedTasks": 0
+          "completedTasks": 7,
+          "sessions": 6,
+          "focusTime": 71
         },
         {
           "date": "2026-07-07",
-          "completedTasks": 1
+          "completedTasks": 5,
+          "sessions": 1,
+          "focusTime": 0
         },
         {
           "date": "2026-07-08",
-          "completedTasks": 8
+          "completedTasks": 1,
+          "sessions": 0,
+          "focusTime": 81
         },
         {
           "date": "2026-07-09",
-          "completedTasks": 7
+          "completedTasks": 8,
+          "sessions": 3,
+          "focusTime": 41
         },
         {
           "date": "2026-07-10",
-          "completedTasks": 7
+          "completedTasks": 4,
+          "sessions": 3,
+          "focusTime": 66
         },
         {
           "date": "2026-07-11",
-          "completedTasks": 4
+          "completedTasks": 3,
+          "sessions": 2,
+          "focusTime": 15
         },
         {
           "date": "2026-07-12",
-          "completedTasks": 5
+          "completedTasks": 4,
+          "sessions": 7,
+          "focusTime": 11
         },
         {
           "date": "2026-07-13",
-          "completedTasks": 8
+          "completedTasks": 1,
+          "sessions": 2,
+          "focusTime": 77
         },
         {
           "date": "2026-07-14",
-          "completedTasks": 5
+          "completedTasks": 6,
+          "sessions": 4,
+          "focusTime": 78
         },
         {
           "date": "2026-07-15",
-          "completedTasks": 4
+          "completedTasks": 5,
+          "sessions": 5,
+          "focusTime": 65
         },
         {
           "date": "2026-07-16",
-          "completedTasks": 6
+          "completedTasks": 1,
+          "sessions": 2,
+          "focusTime": 91
         },
         {
           "date": "2026-07-17",
-          "completedTasks": 7
+          "completedTasks": 2,
+          "sessions": 5,
+          "focusTime": 31
         },
         {
           "date": "2026-07-18",
-          "completedTasks": 7
+          "completedTasks": 8,
+          "sessions": 6,
+          "focusTime": 1
         },
         {
           "date": "2026-07-19",
-          "completedTasks": 2
+          "completedTasks": 7,
+          "sessions": 0,
+          "focusTime": 2
         },
         {
           "date": "2026-07-20",
-          "completedTasks": 4
+          "completedTasks": 7,
+          "sessions": 1,
+          "focusTime": 39
         },
         {
           "date": "2026-07-21",
-          "completedTasks": 8
+          "completedTasks": 0,
+          "sessions": 4,
+          "focusTime": 73
         },
         {
           "date": "2026-07-22",
-          "completedTasks": 2
+          "completedTasks": 3,
+          "sessions": 1,
+          "focusTime": 18
         },
         {
           "date": "2026-07-23",
-          "completedTasks": 5
+          "completedTasks": 8,
+          "sessions": 3,
+          "focusTime": 35
         },
         {
           "date": "2026-07-24",
-          "completedTasks": 5
+          "completedTasks": 6,
+          "sessions": 0,
+          "focusTime": 50
         },
         {
           "date": "2026-07-25",
-          "completedTasks": 4
+          "completedTasks": 6,
+          "sessions": 4,
+          "focusTime": 85
         },
         {
           "date": "2026-07-26",
-          "completedTasks": 0
+          "completedTasks": 1,
+          "sessions": 7,
+          "focusTime": 71
         },
         {
           "date": "2026-07-27",
-          "completedTasks": 8
+          "completedTasks": 8,
+          "sessions": 1,
+          "focusTime": 14
         },
         {
           "date": "2026-07-28",
-          "completedTasks": 0
+          "completedTasks": 6,
+          "sessions": 2,
+          "focusTime": 80
         },
         {
-          "date": "2026-07-28",
-          "completedTasks": 0
+          "date": "2026-07-29",
+          "completedTasks": 2,
+          "sessions": 6,
+          "focusTime": 67
+        },
+        {
+          "date": "2026-07-30",
+          "completedTasks": 3,
+          "sessions": 6,
+          "focusTime": 51
         },
         {
           "date": "2026-07-31",
-          "sessions": 2,
-          "focusTime": 2
+          "sessions": 21,
+          "focusTime": 21,
+          "completedTasks": 5
         }
-      ],
-      "mood": "focused"
+      ]
     }
   ],
   "tasks": [
     {
       "title": "task 1 ",
-      "estimate": 7,
+      "estimate": 8,
       "createdOn": "2026-07-30T12:04:54.938Z",
-      "completed": 0,
+      "completed": 7,
       "userId": "1",
       "id": "kk4NUQ_xh6E",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "title": "bye",
       "estimate": 4,
       "createdOn": "2026-07-30T12:12:00.604Z",
-      "completed": 0,
+      "completed": 2,
       "userId": "1",
       "id": "zOe8bdEPP3A",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "title": "Tharnish",
       "estimate": 13,
       "createdOn": "2026-07-30T13:25:51.418Z",
+      "completed": 2,
+      "status": "completed",
+      "userId": "1",
+      "id": "3O-85FY61so"
+    },
+    {
+      "title": "Check",
+      "estimate": 5,
+      "createdOn": "2026-07-31T07:08:39.241Z",
+      "completed": 3,
+      "status": "completed",
+      "userId": "1",
+      "id": "BewCBA_7ySM"
+    },
+    {
+      "title": "Iam Just working",
+      "estimate": 6,
+      "createdOn": "2026-07-31T09:22:53.179Z",
+      "completed": 0,
+      "status": "completed",
+      "userId": "1",
+      "id": "EkxhcfdoTd4"
+    },
+    {
+      "title": "check",
+      "estimate": 3,
+      "createdOn": "2026-07-31T09:53:47.323Z",
       "completed": 0,
       "status": "pending",
       "userId": "1",
-      "id": "3O-85FY61so"
+      "id": "KH_zwtnPFjY"
+    },
+    {
+      "title": "2",
+      "estimate": 4,
+      "createdOn": "2026-07-31T09:59:42.267Z",
+      "completed": 0,
+      "status": "completed",
+      "userId": "1",
+      "id": "9BA8bfCBxMY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

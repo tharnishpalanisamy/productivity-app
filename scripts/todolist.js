@@ -100,7 +100,7 @@ cancelBtn.addEventListener('click', function () {
 
 });
 
-async function fetchTasks() {
+export async function fetchTasks() {
 
     try {
         const response = await fetch(
@@ -146,7 +146,7 @@ async function fetchTasks() {
                                 ${task.title}
                             </p>
                             <p class="task-progress ${task.status == 'completed' ? 'strike' :''}">
-                                ${task.completed ? task.estimate : '0'} / ${task.estimate} sessions
+                                ${task.completed ? task.completed : '0'} / ${task.estimate} sessions
                             </p>
                         </div>
                     </div>
@@ -343,61 +343,90 @@ tasks.addEventListener('click' , async  function(event){
         let selectedProgress = selectedTaskCard.querySelector('.task-progress')
         let allTaskCards = document.querySelectorAll('.task-card') 
 
+        let data = await fetch('http://localhost:3000/users/1') 
+        let user = await data.json() 
+        let todayData = getTodayData(user) 
 
-        if (selectedBtn.dataset.status == 'completed') {
+        if (selectedBtn.dataset.status === 'completed') {
+
             selectedTaskCard.classList.remove('selected')
             selectedBtn.classList.remove('btnSelected')
 
-            selectedIcon.classList.remove('btnSelected' , 'bg-none' , 'fs-5')  
-            selectedIcon.classList.add('text-dark') 
-            
+            selectedIcon.classList.remove('btnSelected','bg-none','fs-5')
+            selectedIcon.classList.add('text-dark')
+
             selectedTitle.classList.remove('strike')
-            
             selectedProgress.classList.remove('strike')
 
             selectedBtn.dataset.status = 'pending'
 
-            await fetch(`http://localhost:3000/tasks/${selectedTask}` , {
-                method:'PATCH' , 
-                headers:{
-                    'Content-type':'application/json' 
-                },
-                body:JSON.stringify({status:'pending'})
+            user.completedTasks = Math.max(0, user.completedTasks - 1)
+            todayData.completedTasks = Math.max(0, todayData.completedTasks - 1)
+
+            await fetch(`http://localhost:3000/tasks/${selectedTask}`, {
+                method: 'PATCH',
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ status: 'pending' })
             })
+    } 
+    else {
 
-        }
-        else if (selectedBtn.dataset.status == 'pending') {
+        selectedTaskCard.classList.add('selected')
+        selectedBtn.classList.add('btnSelected')
+        selectedBtn.dataset.status = 'completed'
 
-            selectedTaskCard.classList.add('selected')
-            selectedBtn.classList.add('btnSelected' )
-            selectedBtn.dataset.status = 'completed'    
-            selectedIcon.classList.add('btnSelected' , 'bg-none' , 'fs-5')  
-            selectedIcon.classList.remove('text-dark') 
-            
-            selectedTitle.classList.add('strike')
-            
-            selectedProgress.classList.add('strike')
-            console.log(selectedTitle);
-            selectedBtn.dataset.status = 'completed'
-            console.log(allTaskCards);
+        selectedIcon.classList.add('btnSelected','bg-none','fs-5')
+        selectedIcon.classList.remove('text-dark')
 
-            allTaskCards.forEach(task =>{
-                if(task.dataset.id === selectedTask) {
-                    task.classList.add('selected')
-                }
-            })
+        selectedTitle.classList.add('strike')
+        selectedProgress.classList.add('strike')
 
-            await fetch(`http://localhost:3000/tasks/${selectedTask}` , {
-                method:'PATCH' , 
-                headers:{
-                    'Content-type':'application/json' 
-                },
-                body:JSON.stringify({status:'completed'})
-            })
+        user.completedTasks = (user.completedTasks || 0) + 1
+        todayData.completedTasks = (todayData.completedTasks || 0) + 1
 
+        await fetch(`http://localhost:3000/tasks/${selectedTask}`, {
+            method: 'PATCH',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ status: 'completed' })
+        })
+    }
 
-        }
+    await fetch('http://localhost:3000/users/1', {
+        method: 'PATCH',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({
+            completedTasks: user.completedTasks,
+            heatmapData: user.heatmapData
+        })
+    })
+        // tasks.appendChild(selectedTaskCard)
         
     }
 })
 
+//selecting specific task 
+let selectedTaskForSession 
+tasks.addEventListener('click' , function(event){
+
+    if(event.target.closest('.task-card')) { 
+        console.log( 'namma' , event.target);
+        
+        selectedTaskForSession = event.target.closest('.task-card').dataset.id
+        let taskCard = event.target.closest('.task-card') 
+        tasks.querySelectorAll('.task-card').forEach(task=>{
+            task.classList.remove('task-selected')
+        })
+        taskCard.classList.add('task-selected') 
+        localStorage.setItem('selectedTask' , selectedTaskForSession)
+        
+    }
+})
+
+
+function completeTask(taskData) {
+    tasks.querySelectorAll('.task-card').forEach(task =>{
+        if(task.dataset.id == taskData.id) {
+            task.classList.add('selected') 
+        }
+})
+}

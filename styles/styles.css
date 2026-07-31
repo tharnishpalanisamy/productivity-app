@@ -630,7 +630,7 @@ i{
 }
 
 .selected{
-    border-left-color: var(--short-break) ;
+    border-left-color: var(--short-break) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07) ;
 
 }
@@ -638,7 +638,7 @@ i{
     border-left-color: #10d795;
 }
 .btnSelected{
-    border-color: var(--short-break);
+    border-color: var(--short-break) ;
     color: #10B981 !important; 
 
 }
@@ -648,6 +648,149 @@ i{
 }
 
 .strike {
-    text-decoration: line-through;
-    color: #10B981;
+  text-decoration: line-through;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  color: #10B981;
+}
+
+
+.task-selected{
+    border-left-color: var(--focus) ;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07) ;
+}
+
+
+
+.shortBreak-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto 0;
+
+    background: transparent;
+    border-radius: 8px;
+}
+
+.shortBreak-content {
+    width: 100%;
+    padding: 20px; 
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.longBreak-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto 0;
+
+    background: transparent;
+    border-radius: 8px;
+}
+
+.longBreak-content {
+    width: 100%;
+    padding: 20px; 
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.shortBreak-p{
+    font-weight: 600; 
+    font-family: Inter; 
+    text-align: center;
+}
+
+
+.shortBreak-content {
+    background: #f8fafc;
+    padding: 28px 35px;
+    border-radius: 14px;
+}
+
+.shortBreak-p {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.games-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.game {
+    width: 110px;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.game-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+    color: white;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.game:hover .game-icon {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.game:active .game-icon {
+    transform: scale(0.95);
+}
+
+.game span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+}
+
+
+.tenzies-icon {
+    background: #7c3aed;
+}
+
+.reaction-icon {
+    background: #f59e0b;
+}
+
+.tictactoe-icon {
+    background: #3b82f6;
+}
+
+.tictactoe-icon span {
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.rps-icon {
+    background: #ef4444;
+}
+
+.memory-icon {
+    background: #ec4899;
+}
+
+.math-icon {
+    background: #14b8a6;
 }
