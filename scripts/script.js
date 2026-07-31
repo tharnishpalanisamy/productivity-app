@@ -43,11 +43,24 @@ function startTimer(minutes , seconds  ){
 
 }
 
-function sessionCompleted(){
+async function sessionCompleted(){
     user.session = user.session ? user.session + 1 : 1 
     user.focusTime = user.focusTime ? user.focusTime + curVal.minutes + 1 : curVal.minutes + 1 
     user.streak = user.streak ? user.streak + 1 : 1 
-    user.thisMonth = user.thisMonth ? user.thisMonth + 1 : 1 
+    user.thisMonth = user.thisMonth ? user.thisMonth + 1 : 1  
+
+    let todayData = getTodayData() 
+    todayData.sessions += 1 
+    todayData.focusTime += curVal.minutes + 1 
+    localStorage.setItem('user' , JSON.stringify(user)) 
+
+    await fetch('http://localhost:3000/users/1' , {
+        method:'PATCH' , 
+        headers:{
+            'Content-type' : 'application/json' 
+        } , 
+        body:JSON.stringify(user.heatmapData)
+    })
 }
 
 function changeIcon(value){
@@ -322,7 +335,9 @@ async function fetchTasks() {
 
         allTasks.forEach(task => {
             tasks.innerHTML += `
-                <div class="task-card" data-id="${task.id}" ${task.status == 'completed' ? 'selected' :''}>
+                <div class="task-card ${task.status == 'completed' ? 'selected' :''}"
+                 data-id="${task.id}" data-status=${task.status} 
+                >
                     <div class="task-card-left">
                         <button class="task-check completeTask ${task.status == 'completed' ? 'btnSelected' :''}"
                          data-id=${task.id} data-status=${task.status} type="button"  >
@@ -534,7 +549,7 @@ tasks.addEventListener('click' , async  function(event){
 
 
         if (selectedBtn.dataset.status == 'completed') {
-            
+            selectedTaskCard.classList.remove('selected')
             selectedBtn.classList.remove('btnSelected')
 
             selectedIcon.classList.remove('btnSelected' , 'bg-none' , 'fs-5')  
@@ -557,8 +572,9 @@ tasks.addEventListener('click' , async  function(event){
         }
         else if (selectedBtn.dataset.status == 'pending') {
 
+            selectedTaskCard.classList.add('selected')
             selectedBtn.classList.add('btnSelected' )
-            selectedBtn.dataset.status = 'completed'
+            selectedBtn.dataset.status = 'completed'    
             selectedIcon.classList.add('btnSelected' , 'bg-none' , 'fs-5')  
             selectedIcon.classList.remove('text-dark') 
             
@@ -566,7 +582,7 @@ tasks.addEventListener('click' , async  function(event){
             
             selectedProgress.classList.add('strike')
             console.log(selectedTitle);
-            
+            selectedBtn.dataset.status = 'completed'
             console.log(allTaskCards);
 
             allTaskCards.forEach(task =>{
@@ -586,13 +602,35 @@ tasks.addEventListener('click' , async  function(event){
 
         }
         
-        
-
-
-
-        
-        
-        
-        
     }
 })
+
+
+
+//heatmap 
+function getTodayDate(){
+    let today = new Date()
+
+    let year = today.getFullYear() 
+    let month = today.getMonth() + 1 
+    let date = today.getDate() 
+    console.log( typeof month);
+    
+    return `${year}-${month>9 ? month : '0'+month}-${date>9 ? date : '0'+date}`
+}
+
+console.log(getTodayDate());
+
+function getTodayData(){
+    let today = getTodayDate() 
+    let todayData = user.heatmapData.find(data => data.date === today) 
+    if(!todayData){
+        todayData = {
+            date:today 
+        }
+        user.heatmapData.push(todayData)
+    }
+
+    return todayData
+}
+

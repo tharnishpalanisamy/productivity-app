@@ -630,15 +630,21 @@ i{
 }
 
 .selected{
-    border-left-color: #6366F1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    border-left-color: var(--short-break) ;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07) ;
+
+}
+.selected:hover{
+    border-left-color: #10d795;
+}
+.btnSelected{
+    border-color: var(--short-break);
+    color: #10B981 !important; 
 
 }
 
-.btnSelected{
-    border-color: var(--focus);
-    color: #10B981 !important; 
-
+.btnSelected:hover{
+    border-color: #10d795;
 }
 
 .strike {

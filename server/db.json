@@ -861,12 +861,12 @@
   "tasks": [
     {
       "title": "task 1 ",
-      "estimate": 4,
+      "estimate": 7,
       "createdOn": "2026-07-30T12:04:54.938Z",
       "completed": 0,
       "userId": "1",
       "id": "kk4NUQ_xh6E",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "title": "bye",
@@ -875,14 +875,14 @@
       "completed": 0,
       "userId": "1",
       "id": "zOe8bdEPP3A",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "title": "Tharnish",
       "estimate": 13,
       "createdOn": "2026-07-30T13:25:51.418Z",
       "completed": 0,
-      "status": "pending",
+      "status": "completed",
       "userId": "1",
       "id": "3O-85FY61so"
     }
