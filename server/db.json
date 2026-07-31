@@ -853,6 +853,11 @@
         {
           "date": "2026-07-28",
           "completedTasks": 0
+        },
+        {
+          "date": "2026-07-31",
+          "sessions": 2,
+          "focusTime": 2
         }
       ],
       "mood": "focused"
@@ -866,7 +871,7 @@
       "completed": 0,
       "userId": "1",
       "id": "kk4NUQ_xh6E",
-      "status": "completed"
+      "status": "pending"
     },
     {
       "title": "bye",
@@ -875,14 +880,14 @@
       "completed": 0,
       "userId": "1",
       "id": "zOe8bdEPP3A",
-      "status": "completed"
+      "status": "pending"
     },
     {
       "title": "Tharnish",
       "estimate": 13,
       "createdOn": "2026-07-30T13:25:51.418Z",
       "completed": 0,
-      "status": "completed",
+      "status": "pending",
       "userId": "1",
       "id": "3O-85FY61so"
     }
