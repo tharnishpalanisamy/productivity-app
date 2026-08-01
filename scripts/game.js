@@ -108,37 +108,104 @@ cells.forEach(cell => {
 
 })
 
+function minimax(board, isMaximizing) {
+
+    if (checkWinner(AI)) return 1;
+    if (checkWinner(PLAYER)) return -1;
+    if (!board.includes('')) return 0;
+
+    if (isMaximizing) {
+
+        let bestScore = -Infinity;
+
+        for (let i = 0; i < board.length; i++) {
+
+            if (board[i] === '') {
+
+                board[i] = AI;
+
+                let score = minimax(board, false);
+
+                board[i] = '';
+
+                bestScore = Math.max(bestScore, score);
+            }
+        }
+
+        return bestScore;
+    }
+
+    else {
+
+        let bestScore = Infinity;
+
+        for (let i = 0; i < board.length; i++) {
+
+            if (board[i] === '') {
+
+                board[i] = PLAYER;
+
+                let score = minimax(board, true);
+
+                board[i] = '';
+
+                bestScore = Math.min(bestScore, score);
+            }
+        }
+
+        return bestScore;
+    }
+}
+
+function checkWinner(player) {
+
+    return winningConditions.some(condition => {
+
+        const [a, b, c] = condition;
+
+        return (
+            board[a] === player &&
+            board[b] === player &&
+            board[c] === player
+        );
+
+    });
+
+}
+
+
 
 function aiMove() {
 
-    const emptyCells = []
+    let bestScore = -Infinity;
+    let bestMove = -1;
 
-    board.forEach((value, index) => {
+    for (let i = 0; i < board.length; i++) {
 
-        if (value === '') {
-            emptyCells.push(index)
+        if (board[i] === '') {
+
+            board[i] = AI;
+
+            let score = minimax(board, false);
+
+            board[i] = '';
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestMove = i;
+            }
         }
-
-    })
-
-    if (emptyCells.length === 0) {
-        return
     }
 
-    const randomIndex =
-        Math.floor(Math.random() * emptyCells.length)
+    if (bestMove !== -1) {
 
-    const selectedIndex = emptyCells[randomIndex]
-
-    board[selectedIndex] = AI
-
-    cells[selectedIndex].textContent = AI
-
-    if (checkGameEnd(AI)) {
-        return
+        board[bestMove] = AI;
+        cells[bestMove].textContent = AI;
     }
 
-    statusText.textContent = 'Your turn'
+    if (checkGameEnd(AI)) return;
+
+    statusText.textContent = "Your turn";
 }
 
 
@@ -186,19 +253,40 @@ function checkGameEnd(player) {
 
 restartBtn.addEventListener('click', restartGame)
 
-
+let aiStarts = false;
 function restartGame() {
 
-    board = ['', '', '', '', '', '', '', '', '']
+    board = ['', '', '', '', '', '', '', '', ''];
 
-    gameRunning = true
-    aiThinking = false
+    gameRunning = true;
+    aiThinking = false;
+    
 
-    statusText.textContent = 'Your turn'
+    cells.forEach(cell => cell.textContent = '');
 
-    cells.forEach(cell => {
-        cell.textContent = ''
-    })
+    aiStarts = !aiStarts;
+
+    if (aiStarts) {
+
+        statusText.textContent = "AI starts...";
+
+        aiThinking = true;
+
+        setTimeout(() => {
+
+            aiMove();
+
+            aiThinking = false;
+
+        }, 500);
+
+    }
+
+    else {
+
+        statusText.textContent = "Your turn";
+    }
+
 }
 
 

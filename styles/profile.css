@@ -280,3 +280,168 @@ select.profile-input {
     font-size: 0.85rem;
     font-weight: 500;
 }
+
+
+/* ===========================
+   TABLET (<= 992px)
+=========================== */
+@media (max-width: 992px) {
+
+    .profile-container{
+        padding: 30px;
+        gap: 35px;
+        align-items: flex-start;
+    }
+
+    #profileImage{
+        width: 220px;
+        height: 220px;
+    }
+
+    .smile-logo-container{
+        bottom: 15px;
+        right: 18%;
+    }
+
+    .cards{
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .stats-card{
+        width: 150px;
+    }
+
+    .heatmap{
+        overflow-x: auto;
+    }
+
+    .month-label{
+        min-width: max-content;
+    }
+
+    .grid-container{
+        min-width: max-content;
+    }
+}
+
+
+@media (max-width:768px){
+
+    .profile-container{
+        flex-direction: column;
+        padding: 20px;
+        gap: 40px;
+    }
+
+    .profile-section,
+    .productivity-section{
+        width:100%;
+    }
+
+    .profile-data{
+        text-align:center;
+    }
+
+    .profile-name{
+        margin-right:0;
+    }
+
+    #profileImage{
+        width:180px;
+        height:180px;
+    }
+
+    .profile-img{
+        display:flex;
+        justify-content:center;
+    }
+
+    .smile-logo-container{
+        right:calc(50% - 80px);
+        bottom:12px;
+    }
+
+    .socials{
+        padding-left:0 !important;
+        display:flex;
+        justify-content:center;
+    }
+
+    .heatmap{
+        overflow-x:auto;
+        padding:15px;
+    }
+
+    .month-label{
+        gap:45px;
+        min-width:max-content;
+        margin-left:28px;
+    }
+
+    .grid-container{
+        min-width:max-content;
+    }
+
+    .cards{
+        margin-top:35px;
+        gap:15px;
+    }
+
+    .stats-card{
+        width:calc(50% - 10px);
+    }
+
+    .editProfileBtn{
+        width:100%;
+        max-width:250px;
+    }
+}
+
+
+@media (max-width:480px){
+
+    .profile-container{
+        padding:15px;
+    }
+
+    #profileImage{
+        width:150px;
+        height:150px;
+    }
+
+    .profile-name{
+        font-size:1.3rem;
+    }
+
+    .heatmap{
+        padding:12px;
+    }
+
+    .day-labels span,
+    .month-label{
+        font-size:9px;
+    }
+
+    .block{
+        width:10px;
+        height:10px;
+    }
+
+    .stats-card{
+        width:100%;
+    }
+
+    .stats-card h4{
+        font-size:1.5rem;
+    }
+
+    .editProfileBtn{
+        width:100%;
+    }
+
+    .info{
+        justify-content:center;
+        margin-right:0;
+    }
+}
