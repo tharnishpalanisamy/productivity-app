@@ -106,25 +106,30 @@
                 <span>Tic Tac Toe</span>
             </button>
 
-            <button class="game" data-game="rps">
+            <button class="game" data-game="rps" data-bs-toggle="modal" data-bs-target="#gameModal">
                 <div class="game-icon rps-icon">
                     <i class="fa-solid fa-hand-scissors"></i>
                 </div>
                 <span>Rock Paper Scissors</span>
             </button>
 
-            <button class="game" data-game="memory">
+            <button class="game coming-soon" data-game="memory">
+                <span class="coming-badge">Soon</span>
+
                 <div class="game-icon memory-icon">
                     <i class="bi bi-layers-fill"></i>
                 </div>
+
                 <span>Memory Game</span>
             </button>
 
+            <button class="game coming-soon" data-game="math">
+                <span class="coming-badge">Soon</span>
 
-            <button class="game" data-game="math"  >
                 <div class="game-icon math-icon">
                     <i class="bi bi-calculator-fill"></i>
                 </div>
+
                 <span>Math Quiz</span>
             </button>
 
@@ -135,8 +140,29 @@
 
 <!--Long Break--> 
 <section class="longBreak-container">
-    <div class="longBreak-content">
-        <p class="shortBreak-p" >Dont have Anything to do ? spend your long break Here !</p>
+    <div class="longBreak-content text-center">
+
+        <div class="break-icon">🌿</div>
+
+        <h2 class="mb-3">Long Break Time</h2>
+
+        <p class="lead">
+            Nice work! You've completed multiple focus sessions.
+        </p>
+
+        <p class="break-message">
+            Step away from the screen for a while. Stretch, drink some water,
+            take a short walk, or simply relax. Your brain deserves a proper
+            recharge before the next sprint.
+        </p>
+
+        <div class="break-tips mt-4">
+            <div>💧 Hydrate</div>
+            <div>🧘 Stretch</div>
+            <div>👀 Rest your eyes</div>
+            <div>🚶 Take a walk</div>
+        </div>
+
     </div>
 </section>
 
@@ -273,6 +299,64 @@
                     <h1 class="reaction-icon"></h1> 
                     <h1 class="reaction-text">Wait for Green</h1>  
                     <p class=" try-again"></p>
+            </div>
+        </div>
+
+
+        <!--rock paper scisor time-->
+        <div class="modal-content rpsContainer">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">
+                    Rock Paper Scissor
+                </h1>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+
+
+            <div class="modal-body rps-body"> 
+                
+                <div class="result-container d-none">
+
+                    <div class="user-choice-card">
+                        <h5>You Chose</h5>
+                        <div class="choice">✊</div>
+                    </div>
+
+                    <div class="result-card">
+
+                        <div class="computer-section">
+                            <h5>Computer Chose</h5>
+                            <div class="computer-choice">✋</div>
+                        </div>
+
+                        
+
+                    </div>
+                    <h2 class="rps-result">You Win! 🎉</h2>
+                    <button class="play-again">
+                            Play Again
+                        </button>
+
+                </div>
+
+                <div class="options-container">  
+                    <button class="option-btn rockBtn fs-1" data-value = 1 > 
+                        ✊
+                    </button>
+
+                    <button class="option-btn paperBtn fs-1" data-value = 2  >
+                        ✋
+                    </button>
+
+                    <button class="option-btn scisorBtn fs-1" data-value = 3 >
+                        ✌️
+                    </button>
+                </div>
+
+                
             </div>
         </div>
 

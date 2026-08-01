@@ -1,4 +1,4 @@
-import {createheatmapData} from './utilities.js'
+import {createheatmapData , fillMissingDays} from './utilities.js'
 
 let user = {}
 let heatmapData = [] 
@@ -6,7 +6,7 @@ async function loadheatmapData(){
     let data = await fetch('http://localhost:3000/users/1') 
     user = await data.json()  
     heatmapData = user.heatmapData 
-
+    fillMissingDays(heatmapData) 
     if((!user.heatmapData || user.heatmapData.length === 0)) {
         heatmapData = createheatmapData() 
         await fetch('http://localhost:3000/users/1' , {

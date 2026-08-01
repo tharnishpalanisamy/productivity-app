@@ -305,3 +305,178 @@
 .reactionGame-body * {
     user-select: none;
 }   
+
+
+
+
+
+/* rock paper scissor */
+.rpsContainer{
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.rpsContainer .modal-header{
+    background: linear-gradient(135deg,#6366f1,#4f46e5);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+}
+
+.rpsContainer .btn-close{
+    filter: invert(1);
+}
+
+.rps-body{
+    padding: 2.5rem 2rem;
+    background: #f8fafc;
+    min-height: 350px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options-container{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.option-btn{
+    width: 140px;
+    height: 140px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.option-btn:hover{
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(79,70,229,.2);
+}
+
+.option-btn:active{
+    transform: scale(.95);
+}
+
+/* Individual Colors */
+
+.rockBtn{
+    color:#ef4444;
+    border:2px solid #ef4444;
+}
+
+.rockBtn:hover{
+    background:#ef4444;
+    color:white;
+}
+
+.paperBtn{
+    color:#10b981;
+    border:2px solid #10b981;
+}
+
+.paperBtn:hover{
+    background:#10b981;
+    color:white;
+}
+
+.scisorBtn{
+    color:#f59e0b;
+    border:2px solid #f59e0b;
+}
+
+.scisorBtn:hover{
+    background:#f59e0b;
+    color:white;
+} 
+
+.choice , .computer-choice {
+    font-size: 100px;
+}
+
+.result-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:2rem;
+    flex-wrap:wrap;
+    padding:2rem;
+}
+
+.user-choice-card{
+    width:220px;
+    padding:1.5rem;
+    border-radius:18px;
+    background:#ffffff;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.user-choice-card h5{
+    margin-bottom:1rem;
+    color:#6b7280;
+    font-weight:600;
+}
+
+.choice{
+    font-size:5rem;
+}
+
+.result-card{
+    width:350px;
+    padding:2rem;
+    border-radius:18px;
+    background:#ffffff;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.5rem;
+}
+
+.computer-section{
+    text-align:center;
+}
+
+.computer-section h5{
+    margin-bottom:1rem;
+    color:#6b7280;
+    font-weight:600;
+}
+
+.computer-choice{
+    font-size:5rem;
+}
+
+.rps-result{
+    color:#4f46e5;
+    font-size:2rem;
+    font-weight:700;
+}
+
+.play-again{
+    border:none;
+    outline:none;
+    background:#4f46e5;
+    color:#fff;
+    padding:.9rem 2rem;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.play-again:hover{
+    background:#4338ca;
+    transform:translateY(-2px);
+}

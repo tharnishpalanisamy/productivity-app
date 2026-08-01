@@ -5,43 +5,41 @@ let gamesContainer = document.querySelector('.games-container')
 let tenzies = document.querySelector('.tenziesContainer') 
 let ticTacToe = document.querySelector('.tictactoeContainer') 
 let reaction = document.querySelector('.reactionContainer') 
-// let rps = document.querySelector('.rpsContainer') 
+let rps = document.querySelector('.rpsContainer') 
 // let memory = document.querySelector('.memeory') 
 // let math = document.querySelector('.math')  
 
-// let games = [tenzies , ticTacToe , reaction , rps , memory , math ] 
-// function showGame(item) {
-//     games.forEach(item => {
-//         item.classList.add('d-none')
-//     })
-//     game.classList.remove('d-none')
-// }
+let games = [tenzies , ticTacToe , reaction , rps ] 
+function showGame(item) {
+    games.forEach(item => {
+        item.classList.add('d-none')
+    })
+    item.classList.remove('d-none')
+}
 gamesContainer.addEventListener('click', function(event) {
 
     const game = event.target.closest('.game')
     if (game){
         const selectedGame = game.dataset.game
-        console.log('hi');
+        console.log('hi'); 
+        
         
         if (selectedGame === 'tenzies') {
-            ticTacToe.classList.add('d-none')
-            tenzies.classList.remove('d-none') 
-            reaction.classList.add('d-none')
+            showGame(tenzies)
         } 
 
         else if (selectedGame === 'reaction') {
-            ticTacToe.classList.add('d-none')
-            tenzies.classList.add('d-none') 
-            reaction.classList.remove('d-none')
+            showGame(reaction)
+
         }
 
         else if (selectedGame === 'tictactoe') {
-            tenzies.classList.add('d-none')
-            ticTacToe.classList.remove('d-none')
-            reaction.classList.add('d-none')
+            showGame(ticTacToe)
+
         }
 
         else if (selectedGame === 'rps') {
+            showGame(rps)
         }
         else if(selectedGame === 'memory') {
 
@@ -386,7 +384,7 @@ document
 
             let endTime = performance.now()
 
-            let reactionTime = Math.round(endTime - startTime)
+            let reactionTime = Math.round(endTime - startTime) 
 
             gameState = 'result'
 
@@ -420,3 +418,58 @@ document
             startReactionGame()
         }
     })
+
+
+
+//rock paper scissor 
+
+let optionsContainer = document.querySelector('.options-container')  
+let resContainer = document.querySelector('.result-container' )  
+
+let choiceText = document.querySelector('.choice') 
+let computerText = document.querySelector('.computer-choice') 
+
+let resText = document.querySelector('.rps-result') 
+
+const options = ['Rock' , 'Paper' , 'Scissor']
+const optionEmoji = ['✊' , '✋' , '✌️']  
+
+let playAgain = document.querySelector('.play-again') 
+
+optionsContainer.addEventListener('click' , function(){ 
+    if(event.target.closest('.option-btn')) {
+
+        let userChoice = Number(event.target.closest('.option-btn').dataset.value ) -1 
+        let computerChoice = Math.floor(Math.random() * 3)  
+        console.log('user' , userChoice);
+        
+        
+        optionsContainer.classList.add('d-none') 
+        resContainer.classList.remove('d-none') 
+        choiceText.textContent = optionEmoji[userChoice] 
+        computerText.textContent = optionEmoji[computerChoice] 
+
+        if(userChoice === computerChoice) {
+            resText.textContent = 'It is a Draw !'
+        }
+        else if(userChoice == 2 && computerChoice === 0) {
+            resText.textContent = 'Computer Won !' 
+        }
+        else if(userChoice == 0 && computerChoice == 2) {
+            resText.textContent = 'You Won 🎉!'
+        }
+        else if(userChoice > computerChoice) {
+            resText.textContent = 'You Won 🎉!'
+        }
+        else if(userChoice < computerChoice) {
+            resText.textContent = 'Computer Won !'
+        }
+
+    
+        playAgain.addEventListener('click' , function(){
+            optionsContainer.classList.remove('d-none')
+            resContainer.classList.add('d-none')
+ 
+        })
+    }
+}) 

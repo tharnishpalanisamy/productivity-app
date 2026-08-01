@@ -74,3 +74,24 @@ export function celebrateSession() {
     })
 }
 
+
+
+export function fillMissingDays(heatmapData) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const lastDate = new Date(heatmapData[heatmapData.length - 1].date);
+    lastDate.setHours(0, 0, 0, 0);
+
+    // Start from the next day after the last saved date
+    lastDate.setDate(lastDate.getDate() + 1);
+
+    while (lastDate <= today) {
+        heatmapData.push({
+            date: lastDate.toISOString(),
+            sessions: 0
+        });
+
+        lastDate.setDate(lastDate.getDate() + 1);
+    }
+}
