@@ -8,7 +8,7 @@
       "session": 27,
       "focusTime": 106,
       "streak": 32,
-      "completedTasks": 6,
+      "completedTasks": 4,
       "thisMonth": 28,
       "mood": "focused",
       "heatmapData": [
@@ -1289,6 +1289,18 @@
           "sessions": 21,
           "focusTime": 21,
           "completedTasks": 5
+        },
+        {
+          "date": "2026-08-01",
+          "sessions": 0,
+          "focusTime": 0,
+          "completedTasks": 0
+        },
+        {
+          "date": "2026-08-03",
+          "sessions": 0,
+          "focusTime": 0,
+          "completedTasks": 2
         }
       ]
     }
@@ -1301,7 +1313,7 @@
       "completed": 7,
       "userId": "1",
       "id": "kk4NUQ_xh6E",
-      "status": "completed"
+      "status": "pending"
     },
     {
       "title": "bye",
@@ -1310,14 +1322,14 @@
       "completed": 2,
       "userId": "1",
       "id": "zOe8bdEPP3A",
-      "status": "completed"
+      "status": "pending"
     },
     {
       "title": "Tharnish",
       "estimate": 13,
       "createdOn": "2026-07-30T13:25:51.418Z",
       "completed": 2,
-      "status": "completed",
+      "status": "pending",
       "userId": "1",
       "id": "3O-85FY61so"
     },
@@ -1344,7 +1356,7 @@
       "estimate": 3,
       "createdOn": "2026-07-31T09:53:47.323Z",
       "completed": 0,
-      "status": "pending",
+      "status": "completed",
       "userId": "1",
       "id": "KH_zwtnPFjY"
     },
