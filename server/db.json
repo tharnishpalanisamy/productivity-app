@@ -8,7 +8,7 @@
       "session": 27,
       "focusTime": 106,
       "streak": 32,
-      "completedTasks": 4,
+      "completedTasks": 3,
       "thisMonth": 28,
       "mood": "focused",
       "heatmapData": [
@@ -1301,6 +1301,12 @@
           "sessions": 0,
           "focusTime": 0,
           "completedTasks": 2
+        },
+        {
+          "date": "2026-08-24",
+          "sessions": 0,
+          "focusTime": 0,
+          "completedTasks": 2
         }
       ]
     }
@@ -1313,7 +1319,7 @@
       "completed": 7,
       "userId": "1",
       "id": "kk4NUQ_xh6E",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "title": "bye",
@@ -1368,6 +1374,23 @@
       "status": "completed",
       "userId": "1",
       "id": "9BA8bfCBxMY"
+    },
+    {
+      "title": "dd",
+      "estimate": 1,
+      "createdOn": "2026-08-07T11:59:33.711Z",
+      "completed": 0,
+      "status": "pending",
+      "id": "ezPIJDYy7w8"
+    },
+    {
+      "title": "add",
+      "estimate": 1,
+      "createdOn": "2026-08-24T11:35:31.619Z",
+      "completed": 0,
+      "status": "completed",
+      "userId": "1",
+      "id": "iUawiezUCzk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

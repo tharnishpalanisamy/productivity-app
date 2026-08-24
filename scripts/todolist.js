@@ -1,432 +1,697 @@
-import { getTodayData, getTodayDate, fetchUser } from "./utilities.js";
-fetchUser() 
+import { getTodayData, fetchUser } from "./utilities.js";
 
-let user = JSON.parse(localStorage.getItem('user')) || {}
+class Task {
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem("user")) || {};
 
-const taskTitle = document.querySelector('.title');
-const estimatedSessions = document.querySelector('.pomo-input');
+    this.allTasks = [];
+    this.currentTask = null;
+    this.selectedTask = null;
+    this.selectedTaskForSession = null;
 
-const addTaskButton = document.querySelector('.add-task-button');
-const addTaskModal = document.querySelector('.add-task');
+    this.taskTitle = document.querySelector(".title");
+    this.estimatedSessions = document.querySelector(".pomo-input");
 
-const addSessionBtn = document.querySelector('.addSession');
-const subtractSessionBtn = document.querySelector('.subtractSession');
+    this.addTaskButton = document.querySelector(".add-task-button");
+    this.addTaskModal = document.querySelector(".add-task");
 
-const saveBtn = document.querySelector('.save-task-btn');
-const cancelBtn = document.querySelector('.cancel-btn');
+    this.addSessionBtn = document.querySelector(".addSession");
+    this.subtractSessionBtn = document.querySelector(".subtractSession");
 
-const tasks = document.querySelector('.tasks');
+    this.saveBtn = document.querySelector(".save-task-btn");
+    this.cancelBtn = document.querySelector(".cancel-btn");
 
-let allTasks = [];
+    this.tasks = document.querySelector(".tasks");
 
-let currentTask = null;
+    this.init();
+  }
 
+  async init() {
+    await fetchUser();
 
-addTaskButton.addEventListener('click', function () {
-    document.querySelector('.edit-task')?.remove();
+    this.addEventListeners();
+    await this.fetchTasks();
+  }
 
-    addTaskModal.classList.remove('d-none');
-    addTaskButton.classList.add('d-none');
-});
+  addEventListeners() {
+    this.addTaskButton.addEventListener("click", () => {
+      this.openAddTaskModal();
+    });
 
-addSessionBtn.addEventListener('click', function () {
-    estimatedSessions.value = Number(estimatedSessions.value) + 1;
-});
+    this.addSessionBtn.addEventListener("click", () => {
+      this.increaseSession(this.estimatedSessions);
+    });
 
+    this.subtractSessionBtn.addEventListener("click", () => {
+      this.decreaseSession(this.estimatedSessions);
+    });
 
-subtractSessionBtn.addEventListener('click', function () {
-    if (Number(estimatedSessions.value) > 1) {
-        estimatedSessions.value = Number(estimatedSessions.value) - 1;
-    }
+    this.saveBtn.addEventListener("click", async () => {
+      await this.createTask();
+    });
 
-});
+    this.cancelBtn.addEventListener("click", () => {
+      this.cancelAddTask();
+    });
 
-saveBtn.addEventListener('click', async function () {
+    this.tasks.addEventListener("click", async (event) => {
+      const editBtn = event.target.closest(".editTaskBtn");
 
-    const title = taskTitle.value;
-    const estimate = Number(estimatedSessions.value);
+      if (editBtn) {
+        await this.openEditTask(editBtn);
+        return;
+      }
+
+      const addEditSession = event.target.closest(".edit-add-session");
+
+      if (addEditSession) {
+        const editForm = addEditSession.closest(".edit-task");
+        const input = editForm.querySelector(".edit-estimate");
+
+        this.increaseSession(input);
+        return;
+      }
+
+      const subtractEditSession = event.target.closest(
+        ".edit-subtract-session",
+      );
+
+      if (subtractEditSession) {
+        const editForm = subtractEditSession.closest(".edit-task");
+
+        const input = editForm.querySelector(".edit-estimate");
+
+        this.decreaseSession(input);
+        return;
+      }
+
+      const cancelEdit = event.target.closest(".cancel-edit-btn");
+
+      if (cancelEdit) {
+        this.cancelEdit(cancelEdit);
+        return;
+      }
+
+      const saveEdit = event.target.closest(".save-edit-btn");
+
+      if (saveEdit) {
+        await this.saveEdit(saveEdit);
+        return;
+      }
+
+      const deleteBtn = event.target.closest(".delete-task-btn");
+
+      if (deleteBtn) {
+        await this.deleteTask();
+        return;
+      }
+
+      const completeBtn = event.target.closest(".completeTask");
+
+      if (completeBtn) {
+        await this.toggleCompleteTask(completeBtn);
+        return;
+      }
+
+      const taskCard = event.target.closest(".task-card");
+
+      if (taskCard) {
+        this.selectTask(taskCard);
+      }
+    });
+  }
+
+  openAddTaskModal() {
+    document.querySelector(".edit-task")?.remove();
+
+    this.addTaskModal.classList.remove("d-none");
+
+    this.addTaskButton.classList.add("d-none");
+  }
+
+  async createTask() {
+    const title = this.taskTitle.value.trim();
+
+    const estimate = Number(this.estimatedSessions.value);
 
     if (!title) {
-        alert('Please enter the title of the task!');
-        return;
+      alert("Please enter the title of the task!");
+      return;
     }
 
     if (!estimate || estimate < 1) {
-        alert('Estimate must be at least 1.');
-        return;
+      alert("Estimate must be at least 1.");
+      return;
     }
 
     const task = {
-        title: title,
-        estimate: estimate,
-        createdOn: new Date().toISOString(),
-        completed:0 ,
-        status:'pending',
-        userId: user.id
+      title: title,
+
+      estimate: estimate,
+
+      createdOn: new Date().toISOString(),
+
+      completed: 0,
+
+      status: "pending",
+
+      userId: this.user.id,
     };
 
     try {
-        const response = await fetch( 'http://localhost:3000/tasks',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(task)
-            }
-        );
+      await fetch("http://localhost:3000/tasks", {
+        method: "POST",
 
-        taskTitle.value = '';
-        estimatedSessions.value = 1;
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-        addTaskModal.classList.add('d-none');
-        addTaskButton.classList.remove('d-none');
+        body: JSON.stringify(task),
+      });
 
-        await fetchTasks();
+      this.resetAddTaskForm();
 
+      await this.fetchTasks();
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
+  }
 
-});
+  cancelAddTask() {
+    this.resetAddTaskForm();
+  }
 
-cancelBtn.addEventListener('click', function () {
+  resetAddTaskForm() {
+    this.taskTitle.value = "";
 
-    addTaskModal.classList.add('d-none');
-    addTaskButton.classList.remove('d-none');
+    this.estimatedSessions.value = 1;
 
-    taskTitle.value = '';
-    estimatedSessions.value = 1;
+    this.addTaskModal.classList.add("d-none");
 
-});
+    this.addTaskButton.classList.remove("d-none");
+  }
 
-export async function fetchTasks() {
+  increaseSession(input) {
+    input.value = Number(input.value) + 1;
+  }
 
+  decreaseSession(input) {
+    if (Number(input.value) > 1) {
+      input.value = Number(input.value) - 1;
+    }
+  }
+
+  async fetchTasks() {
     try {
-        const response = await fetch(
-            'http://localhost:3000/tasks'
-        );
-        allTasks = await response.json();
-        allTasks = allTasks.filter(
-            task => String(task.userId) === String(user.id)
-        );
+      const response = await fetch("http://localhost:3000/tasks");
 
+      let tasks = await response.json();
 
-        tasks.innerHTML = '';
+      this.allTasks = tasks.filter(
+        (task) => String(task.userId) === String(this.user.id),
+      );
 
+      this.renderTasks();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-        if (allTasks.length === 0) {
+  renderTasks() {
+    this.tasks.innerHTML = "";
 
-            tasks.innerHTML = `
+    if (this.allTasks.length === 0) {
+      this.tasks.innerHTML = `
+
                 <div class="empty-tasks">
+
                     <p>No tasks yet</p>
+
                     <span>
                         Add a task and start focusing.
                     </span>
+
                 </div>
-            `
-            return
-        }
+            `;
 
+      return;
+    }
 
-        allTasks.forEach(task => {
-            tasks.innerHTML += `
-                <div class="task-card ${task.status == 'completed' ? 'selected' :''}"
-                 data-id="${task.id}" data-status=${task.status} 
+    this.allTasks.forEach((task) => {
+      this.tasks.innerHTML += `
+
+                <div
+                    class="task-card ${
+                      task.status === "completed" ? "selected" : ""
+                    }"
+
+                    data-id="${task.id}"
+
+                    data-status="${task.status}"
                 >
+
                     <div class="task-card-left">
-                        <button class="task-check completeTask ${task.status == 'completed' ? 'btnSelected' :''}"
-                         data-id=${task.id} data-status=${task.status} type="button"  >
-                            <i class="fa-solid fa-check text-dark tick 
-                            ${task.status == 'completed' ? 'fs-5 bg-none btnSelected' :''}" 
+
+                        <button
+                            class="
+                                task-check
+                                completeTask
+                                ${
+                                  task.status === "completed"
+                                    ? "btnSelected"
+                                    : ""
+                                }
+                            "
+
+                            data-id="${task.id}"
+
+                            data-status="${task.status}"
+
+                            type="button"
+                        >
+
+                            <i
+                                class="
+                                    fa-solid
+                                    fa-check
+                                    text-dark
+                                    tick
+
+                                    ${
+                                      task.status === "completed"
+                                        ? "fs-5 bg-none btnSelected"
+                                        : ""
+                                    }
+                                "
                             ></i>
+
                         </button>
+
+
                         <div class="task-info">
-                            <p class="task-title ${task.status == 'completed' ? 'strike' :''}">
+
+                            <p
+                                class="
+                                    task-title
+                                    ${
+                                      task.status === "completed"
+                                        ? "strike"
+                                        : ""
+                                    }
+                                "
+                            >
                                 ${task.title}
                             </p>
-                            <p class="task-progress ${task.status == 'completed' ? 'strike' :''}">
-                                ${task.completed ? task.completed : '0'} / ${task.estimate} sessions
+
+
+                            <p
+                                class="
+                                    task-progress
+                                    ${
+                                      task.status === "completed"
+                                        ? "strike"
+                                        : ""
+                                    }
+                                "
+                            >
+
+                                ${task.completed ? task.completed : 0}
+
+                                /
+
+                                ${task.estimate}
+
+                                sessions
+
                             </p>
+
                         </div>
+
                     </div>
-                    <button class="task-options editTaskBtn " data-id="${task.id}" type="button">
-                        <i class="fa-solid fa-ellipsis-vertical text-dark"></i>
+
+
+                    <button
+                        class="task-options editTaskBtn"
+
+                        data-id="${task.id}"
+
+                        type="button"
+                    >
+
+                        <i
+                            class="
+                                fa-solid
+                                fa-ellipsis-vertical
+                                text-dark
+                            "
+                        ></i>
+
                     </button>
+
                 </div>
-            `
-        });
+            `;
+    });
+  }
 
-    } catch (error) {
-        console.log(error);
+  async openEditTask(editBtn) {
+    this.currentTask = editBtn.dataset.id;
 
-    }
-}
+    const task = this.allTasks.find(
+      (task) => String(task.id) === String(this.currentTask),
+    );
 
-tasks.addEventListener('click', async function (event) {
-    const editBtn = event.target.closest('.editTaskBtn');
+    if (!task) return;
 
-    if (editBtn) {
-        currentTask = editBtn.dataset.id;
-        console.log(currentTask);
-        const task = allTasks.find(
-            task => String(task.id) === String(currentTask)
-        );
-        document.querySelector('.edit-task')?.remove();
-        addTaskModal.classList.add('d-none');
-        addTaskButton.classList.remove('d-none');
+    document.querySelector(".edit-task")?.remove();
 
-        const editForm = document.createElement('div');
-        editForm.classList.add('add-task','edit-task' );
+    this.addTaskModal.classList.add("d-none");
 
-        editForm.innerHTML = `
+    this.addTaskButton.classList.remove("d-none");
 
-            <input type="text" class="title edit-title" value="${task.title}" placeholder="What are you working on?">
+    const editForm = document.createElement("div");
+
+    editForm.classList.add("add-task", "edit-task");
+
+    editForm.innerHTML = `
+
+            <input
+                type="text"
+
+                class="title edit-title"
+
+                value="${task.title}"
+
+                placeholder="What are you working on?"
+            >
+
+
             <p class="session-label">
                 Estimate sessions
             </p>
+
+
             <div class="session-controls">
 
-                <input type="number" class="pomo-input edit-estimate" value="${task.estimate}" min="1">
-                <button class="edit-subtract-session" type="button" >
+                <input
+                    type="number"
+
+                    class="pomo-input edit-estimate"
+
+                    value="${task.estimate}"
+
+                    min="1"
+                >
+
+
+                <button
+                    class="edit-subtract-session"
+                    type="button"
+                >
                     −
                 </button>
-                <button class="edit-add-session" type="button">+</button>
+
+
+                <button
+                    class="edit-add-session"
+                    type="button"
+                >
+                    +
+                </button>
+
             </div>
+
 
             <div class="add-task-footer">
+
                 <div class="edit-task-footer">
-                    <button class="delete-task-btn" type="button" >
+
+                    <button
+                        class="delete-task-btn"
+                        type="button"
+                    >
                         Delete
                     </button>
+
+
                     <div class="edit-actions">
-                        <button class="cancel-edit-btn" type="button" >
+
+                        <button
+                            class="cancel-edit-btn"
+                            type="button"
+                        >
                             Cancel
                         </button>
-                        <button class="save-edit-btn" type="button">
+
+
+                        <button
+                            class="save-edit-btn"
+                            type="button"
+                        >
                             Save
                         </button>
+
                     </div>
+
                 </div>
+
             </div>
         `;
-        const taskCard = editBtn.closest('.task-card');
-        taskCard.after(editForm); 
 
-        editForm.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
+    const taskCard = editBtn.closest(".task-card");
 
-        return;
+    taskCard.after(editForm);
+
+    editForm.scrollIntoView({
+      behavior: "smooth",
+
+      block: "nearest",
+    });
+  }
+
+  async saveEdit(saveBtn) {
+    const editForm = saveBtn.closest(".edit-task");
+
+    const title = editForm.querySelector(".edit-title").value.trim();
+
+    const estimate = Number(editForm.querySelector(".edit-estimate").value);
+
+    if (!title) {
+      alert("Please enter the task title!");
+
+      return;
     }
 
-    const addEditSession = event.target.closest('.edit-add-session');
+    if (!estimate || estimate < 1) {
+      alert("Estimate must be at least 1.");
 
-    if (addEditSession) {
-        const editForm = addEditSession.closest('.edit-task');
-        const input = editForm.querySelector('.edit-estimate');
-
-        input.value = Number(input.value) + 1;
-
-        return;
+      return;
     }
 
-    const subtractEditSession = event.target.closest('.edit-subtract-session');
+    try {
+      await fetch(
+        `http://localhost:3000/tasks/${this.currentTask}`,
 
-    if (subtractEditSession) {
+        {
+          method: "PATCH",
 
-        const editForm = subtractEditSession.closest('.edit-task');
-        const input = editForm.querySelector('.edit-estimate');
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-        if (Number(input.value) > 1) {
-            input.value = Number(input.value) - 1;
-        }
-        return;
+          body: JSON.stringify({
+            title: title,
+
+            estimate: estimate,
+          }),
+        },
+      );
+
+      this.currentTask = null;
+
+      await this.fetchTasks();
+    } catch (error) {
+      console.log(error);
     }
-    const cancelEdit = event.target.closest('.cancel-edit-btn');
+  }
 
-    if (cancelEdit) {
-        cancelEdit.closest('.edit-task').remove();
-        currentTask = null;
-        return;
-    }
+  cancelEdit(cancelBtn) {
+    cancelBtn.closest(".edit-task").remove();
 
-    const saveEdit = event.target.closest('.save-edit-btn');
-    if (saveEdit) {
-        const editForm = saveEdit.closest('.edit-task');
-        const title = editForm.querySelector('.edit-title').value 
-        const estimate = Number(editForm.querySelector('.edit-estimate').value); 
-        if (!title) {
-            alert('Please enter the task title!');
-            return;
-        }
-        if (!estimate || estimate < 1) {
-            alert('Estimate must be at least 1.');
-            return;
-        }
-        try {
-            const response = await fetch(
-                `http://localhost:3000/tasks/${currentTask}`,
-                {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+    this.currentTask = null;
+  }
 
-                    body: JSON.stringify({
-                        title: title,
-                        estimate: estimate
-                    })
-                }
-            );
-            currentTask = null;
-            await fetchTasks();
-        } catch (error) {
-            console.log(error)
-        }
-        return;
+  async deleteTask() {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+
+      text: "Do you want to delete this task!",
+
+      icon: "warning",
+
+      showCancelButton: true,
+
+      confirmButtonColor: "#3085d6",
+
+      cancelButtonColor: "#d33",
+
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (!result.isConfirmed) {
+      return;
     }
 
-    const deleteBtn = event.target.closest('.delete-task-btn');
-    if (deleteBtn) {
-        Swal.fire({
-        title: "Are you sure?",
-        text: "Do you want to delete this task!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
-        if (result.isConfirmed) 
-            try {
-                const response = await fetch(
-                    `http://localhost:3000/tasks/${currentTask}`,
-                    {
-                        method: 'DELETE'
-                    }
-                );
-                currentTask = null;
-                await fetchTasks();
-            } catch (error) {
-                console.log(error);
-            }
-            
-            Swal.fire({
-            title: "Deleted!",
-            text: "Your Task has been deleted.",
-            icon: "success"
-        });
-        });
-        
-        return
+    try {
+      await fetch(
+        `http://localhost:3000/tasks/${this.currentTask}`,
+
+        {
+          method: "DELETE",
+        },
+      );
+
+      this.currentTask = null;
+
+      await this.fetchTasks();
+
+      await Swal.fire({
+        title: "Deleted!",
+
+        text: "Your Task has been deleted.",
+
+        icon: "success",
+      });
+    } catch (error) {
+      console.log(error);
     }
-});
+  }
 
-fetchTasks();
+  async toggleCompleteTask(button) {
+    const taskId = button.dataset.id;
 
+    const taskCard = button.closest(".task-card");
 
+    const icon = button.querySelector(".tick");
 
+    const title = taskCard.querySelector(".task-title");
 
-//completed Task
-let selectedTask
-tasks.addEventListener('click' , async  function(event){
-    if(event.target.closest('.completeTask')) {
+    const progress = taskCard.querySelector(".task-progress");
 
-        selectedTask = event.target.closest('.completeTask').dataset.id  
-        let selectedBtn = event.target.closest('.completeTask') 
-        let selectedIcon = selectedBtn.querySelector('.tick')
-        let selectedTaskCard = event.target.closest('.task-card')
+    const userResponse = await fetch(
+      `http://localhost:3000/users/${this.user.id}`,
+    );
 
-        let selectedTitle = selectedTaskCard.querySelector('.task-title') 
-        let selectedProgress = selectedTaskCard.querySelector('.task-progress')
-        let allTaskCards = document.querySelectorAll('.task-card') 
+    const user = await userResponse.json();
 
-        let data = await fetch('http://localhost:3000/users/1') 
-        let user = await data.json() 
-        let todayData = getTodayData(user) 
+    const todayData = getTodayData(user);
 
-        if (selectedBtn.dataset.status === 'completed') {
+    const isCompleted = button.dataset.status === "completed";
 
-            selectedTaskCard.classList.remove('selected')
-            selectedBtn.classList.remove('btnSelected')
+    if (isCompleted) {
+      taskCard.classList.remove("selected");
 
-            selectedIcon.classList.remove('btnSelected','bg-none','fs-5')
-            selectedIcon.classList.add('text-dark')
+      button.classList.remove("btnSelected");
 
-            selectedTitle.classList.remove('strike')
-            selectedProgress.classList.remove('strike')
+      icon.classList.remove("btnSelected", "bg-none", "fs-5");
 
-            selectedBtn.dataset.status = 'pending'
+      icon.classList.add("text-dark");
 
-            user.completedTasks = Math.max(0, user.completedTasks - 1)
-            todayData.completedTasks = Math.max(0, todayData.completedTasks - 1)
+      title.classList.remove("strike");
 
-            await fetch(`http://localhost:3000/tasks/${selectedTask}`, {
-                method: 'PATCH',
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify({ status: 'pending' })
-            })
-    } 
-    else {
+      progress.classList.remove("strike");
 
-        selectedTaskCard.classList.add('selected')
-        selectedBtn.classList.add('btnSelected')
-        selectedBtn.dataset.status = 'completed'
+      button.dataset.status = "pending";
 
-        selectedIcon.classList.add('btnSelected','bg-none','fs-5')
-        selectedIcon.classList.remove('text-dark')
+      user.completedTasks = Math.max(0, (user.completedTasks || 0) - 1);
 
-        selectedTitle.classList.add('strike')
-        selectedProgress.classList.add('strike')
+      todayData.completedTasks = Math.max(
+        0,
+        (todayData.completedTasks || 0) - 1,
+      );
 
-        user.completedTasks = (user.completedTasks || 0) + 1
-        todayData.completedTasks = (todayData.completedTasks || 0) + 1
+      await this.updateTaskStatus(taskId, "pending");
+    } else {
+      taskCard.classList.add("selected");
 
-        await fetch(`http://localhost:3000/tasks/${selectedTask}`, {
-            method: 'PATCH',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ status: 'completed' })
-        })
+      button.classList.add("btnSelected");
+
+      button.dataset.status = "completed";
+
+      icon.classList.add("btnSelected", "bg-none", "fs-5");
+
+      icon.classList.remove("text-dark");
+
+      title.classList.add("strike");
+
+      progress.classList.add("strike");
+
+      user.completedTasks = (user.completedTasks || 0) + 1;
+
+      todayData.completedTasks = (todayData.completedTasks || 0) + 1;
+
+      await this.updateTaskStatus(taskId, "completed");
     }
 
-    await fetch('http://localhost:3000/users/1', {
-        method: 'PATCH',
-        headers: { 'Content-type': 'application/json' },
+    await this.updateUserStats(user);
+  }
+
+  async updateTaskStatus(taskId, status) {
+    await fetch(
+      `http://localhost:3000/tasks/${taskId}`,
+
+      {
+        method: "PATCH",
+
+        headers: {
+          "Content-type": "application/json",
+        },
+
         body: JSON.stringify({
-            completedTasks: user.completedTasks,
-            heatmapData: user.heatmapData
-        })
-    })
-        // tasks.appendChild(selectedTaskCard)
-        
-    }
-})
+          status: status,
+        }),
+      },
+    );
+  }
 
-//selecting specific task 
-let selectedTaskForSession 
-tasks.addEventListener('click' , function(event){
+  async updateUserStats(user) {
+    await fetch(
+      `http://localhost:3000/users/${user.id}`,
 
-    if(event.target.closest('.task-card')) { 
-        console.log( 'namma' , event.target);
-        
-        selectedTaskForSession = event.target.closest('.task-card').dataset.id
-        let taskCard = event.target.closest('.task-card') 
-        tasks.querySelectorAll('.task-card').forEach(task=>{
-            task.classList.remove('task-selected')
-        })
-        taskCard.classList.add('task-selected') 
-        localStorage.setItem('selectedTask' , selectedTaskForSession)
-        
-    }
-})
+      {
+        method: "PATCH",
 
+        headers: {
+          "Content-type": "application/json",
+        },
 
-function completeTask(taskData) {
-    tasks.querySelectorAll('.task-card').forEach(task =>{
-        if(task.dataset.id == taskData.id) {
-            task.classList.add('selected') 
-        }
-})
+        body: JSON.stringify({
+          completedTasks: user.completedTasks,
+
+          heatmapData: user.heatmapData,
+        }),
+      },
+    );
+  }
+
+  selectTask(taskCard) {
+    this.selectedTaskForSession = taskCard.dataset.id;
+
+    this.tasks.querySelectorAll(".task-card").forEach((task) => {
+      task.classList.remove("task-selected");
+    });
+
+    taskCard.classList.add("task-selected");
+
+    localStorage.setItem("selectedTask", this.selectedTaskForSession);
+  }
+
+  completeTask(taskData) {
+    this.tasks.querySelectorAll(".task-card").forEach((task) => {
+      if (task.dataset.id == taskData.id) {
+        task.classList.add("selected");
+      }
+    });
+  }
 }
+
+const taskManager = new Task();

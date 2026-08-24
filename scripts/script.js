@@ -1,7 +1,5 @@
 import { getTodayData, getTodayDate, fetchUser , celebrateSession } from "./utilities.js";
-import { fetchTasks } from "./todolist.js";
 
-fetchUser() 
 
 let user = JSON.parse(localStorage.getItem('user')) || {} 
 let currentState = 'pomodoro'
